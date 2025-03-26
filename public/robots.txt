@@ -21,4 +21,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://w7designflooring.com/sitemap.xml
+Sitemap: https://australia-maywood.com/sitemap.xml

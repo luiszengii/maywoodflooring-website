@@ -31,12 +31,16 @@ export default function NavigationBar() {
 		<AppBar
 			position="static"
 			color="transparent"
-			elevation={1}
-			sx={{ py: 1, bgcolor: "#362b22" }}
+			elevation={0}
+			sx={{ 
+				py: 1.5, 
+				bgcolor: "rgb(255,255,255)",
+				borderBottom: "1px solid rgba(0, 0, 0, 0.06)" 
+			}}
 		>
 			<Container maxWidth="lg">
-				<Toolbar disableGutters sx={{ color: "#362b22" }}>
-					{/* Logo section remains unchanged */}
+				<Toolbar disableGutters>
+					{/* Logo section with increased size */}
 					<Typography
 						variant="h6"
 						component="div"
@@ -49,14 +53,10 @@ export default function NavigationBar() {
 					>
 						<Box
 							component="img"
-							// src="/images/logo.png"
-							// src="/images/logo-trans.png"
 							src="/images/maywoodflooringlogo.jpg"
-							// src="/images/logo-white.png"
-							// src="/images/logo-white-trans.png"
-							alt="W7 Design Flooring Logo"
+							alt="Maywood Flooring Logo"
 							sx={{
-								height: "50px",
+								height: "65px",
 								width: "auto",
 								transition: "transform 0.3s ease-in-out",
 								"&:hover": {
@@ -64,82 +64,61 @@ export default function NavigationBar() {
 								},
 							}}
 						/>
-						{/* Original text logo
-            <Box
-              component="span"
-              sx={{
-                position: "relative",
-                display: "inline-flex",
-                alignItems: "flex-end",
-                gap: "-2px",
-              }}
-            >
-              <Box
-                component="span"
-                sx={{
-                  fontWeight: 700,
-                  letterSpacing: "0.001em",
-                  color: "rgba(255, 255, 255, 0.9)",
-                  fontSize: "2.3rem",
-                  fontFamily: "'Playfair Display', serif",
-                  lineHeight: 1,
-                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                  transition: "all 0.5s ease-in-out",
-                  "&:hover, &:active": {
-                    color: "rgb(255, 255, 255)",
-                    letterSpacing: "0.02em",
-                    textShadow: "0 0 3px rgba(255, 255, 255, 0.35), 0 0 12px rgba(255, 255, 255, 0.2), 0 0 18px rgba(255, 255, 255, 0.1)",
-                    transform: "scale(1.01) translateY(-0.5px)",
-                  },
-                }}
-              >
-                W7 DESIGN
-              </Box>
-              <Box
-                component="span"
-                sx={{
-                  color: "rgba(255, 255, 255, 0.75)",
-                  fontSize: "1.1rem",
-                  fontFamily: "'Playfair Display', serif",
-                  whiteSpace: "nowrap",
-                  marginLeft: "2px",
-                }}
-              >
-                FLOORING
-              </Box>
-            </Box>
-            */}
 					</Typography>
 
-					{/* Desktop menu */}
-					<Box sx={{ display: { xs: "none", md: "flex" } }}>
+					{/* Desktop menu with improved spacing */}
+					<Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ mx: 1, color: "#ffffff" }}
+							sx={{ 
+								color: "rgba(90, 79, 79, 0.8)",
+								fontWeight: 500,
+								"&:hover": {
+									backgroundColor: "rgba(0, 0, 0, 0.03)",
+								},
+							}}
 						>
 							Products
 						</Button>
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ mx: 1, color: "#ffffff" }}
+							sx={{ 
+								color: "rgba(90, 79, 79, 0.8)",
+								fontWeight: 500,
+								"&:hover": {
+									backgroundColor: "rgba(0, 0, 0, 0.03)",
+								},
+							}}
 						>
 							Brands
 						</Button>
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ mx: 1, color: "#ffffff" }}
+							sx={{ 
+								color: "rgba(90, 79, 79, 0.8)",
+								fontWeight: 500,
+								"&:hover": {
+									backgroundColor: "rgba(0, 0, 0, 0.03)",
+								},
+							}}
 						>
 							Resources
 						</Button>
-						<Button
+						<IconButton
 							color="inherit"
-							sx={{ minWidth: "auto", ml: 1, color: "#ffffff" }}
+							sx={{ 
+								ml: 1, 
+								color: "rgba(90, 79, 79, 0.8)",
+								"&:hover": {
+									backgroundColor: "rgba(0, 0, 0, 0.03)",
+								},
+							}}
 						>
 							<SearchIcon />
-						</Button>
+						</IconButton>
 					</Box>
 
 					{/* Mobile menu */}
@@ -150,7 +129,7 @@ export default function NavigationBar() {
 							aria-controls="menu-appbar"
 							aria-haspopup="true"
 							onClick={handleMenu}
-							sx={{ color: "#ffffff" }}
+							sx={{ color: "rgba(90, 79, 79, 0.8)" }}
 						>
 							<MenuIcon />
 						</IconButton>

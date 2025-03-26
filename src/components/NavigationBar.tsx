@@ -32,10 +32,10 @@ export default function NavigationBar() {
 			position="static"
 			color="transparent"
 			elevation={0}
-			sx={{ 
-				py: 1.5, 
+			sx={{
+				py: 1.5,
 				bgcolor: "rgb(255,255,255)",
-				borderBottom: "1px solid rgba(0, 0, 0, 0.06)" 
+				borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
 			}}
 		>
 			<Container maxWidth="lg">
@@ -71,7 +71,7 @@ export default function NavigationBar() {
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ 
+							sx={{
 								color: "rgba(90, 79, 79, 0.8)",
 								fontWeight: 500,
 								"&:hover": {
@@ -84,7 +84,7 @@ export default function NavigationBar() {
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ 
+							sx={{
 								color: "rgba(90, 79, 79, 0.8)",
 								fontWeight: 500,
 								"&:hover": {
@@ -97,7 +97,7 @@ export default function NavigationBar() {
 						<Button
 							color="inherit"
 							endIcon={<KeyboardArrowDownIcon />}
-							sx={{ 
+							sx={{
 								color: "rgba(90, 79, 79, 0.8)",
 								fontWeight: 500,
 								"&:hover": {
@@ -109,8 +109,8 @@ export default function NavigationBar() {
 						</Button>
 						<IconButton
 							color="inherit"
-							sx={{ 
-								ml: 1, 
+							sx={{
+								ml: 1,
 								color: "rgba(90, 79, 79, 0.8)",
 								"&:hover": {
 									backgroundColor: "rgba(0, 0, 0, 0.03)",

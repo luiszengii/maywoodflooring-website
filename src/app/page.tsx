@@ -3,8 +3,10 @@
 import { Box } from "@mui/material";
 import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import ProductGallery from "@/components/ProductGallery";
 import FlooringGallery from "@/components/FlooringGallery";
+import ClientTestimonials from "@/components/ClientTestimonials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -36,8 +38,10 @@ export default function Home() {
 			</script>
 			<NavigationBar />
 			<Hero />
+			<FeaturedProjects />
 			<FlooringGallery />
 			<ProductGallery />
+			<ClientTestimonials />
 			<Footer />
 		</Box>
 	);

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FiChevronDown, FiMenu, FiSearch, FiX } from "react-icons/fi";
+import { FiChevronDown, FiMenu, FiMoon, FiSearch, FiSun, FiX } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import {
 	DropdownMenu,
@@ -27,6 +27,7 @@ const navigationItems = [
 
 export default function NavigationBar() {
 	const [menuOpen, setMenuOpen] = React.useState(false);
+	const [theme, setTheme] = React.useState<"light" | "dark">("light");
 
 	React.useEffect(() => {
 		if (!menuOpen) {
@@ -44,8 +45,29 @@ export default function NavigationBar() {
 		return () => window.removeEventListener("keydown", handleKeyDown);
 	}, [menuOpen]);
 
+	React.useEffect(() => {
+		const storedTheme = localStorage.getItem("theme");
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const initialTheme =
+			storedTheme === "light" || storedTheme === "dark"
+				? (storedTheme as "light" | "dark")
+				: prefersDark
+					? "dark"
+					: "light";
+
+		setTheme(initialTheme);
+		document.documentElement.dataset.theme = initialTheme;
+	}, []);
+
+	const toggleTheme = () => {
+		const nextTheme = theme === "dark" ? "light" : "dark";
+		setTheme(nextTheme);
+		document.documentElement.dataset.theme = nextTheme;
+		localStorage.setItem("theme", nextTheme);
+	};
+
 	return (
-		<header className="border-b border-black/10 bg-[var(--color-surface)] py-6">
+		<header className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-6">
 			<div className="animate-ui-fade-down mx-auto flex max-w-6xl items-center justify-between px-4">
 				<div className="flex items-center gap-4">
 					<img
@@ -81,13 +103,35 @@ export default function NavigationBar() {
 						variant="ghost"
 						size="icon"
 						aria-label="Search"
-						className="text-[rgba(90,79,79,0.9)]"
+						className="text-[var(--color-foreground-subtle)]"
 					>
 						<FiSearch className="text-lg" />
 					</Button>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+						aria-pressed={theme === "dark"}
+						className="text-[var(--color-foreground-subtle)]"
+						onClick={toggleTheme}
+					>
+						{theme === "dark" ? <FiSun className="text-lg" /> : <FiMoon className="text-lg" />}
+					</Button>
 				</nav>
 
-				<div className="relative md:hidden">
+				<div className="relative flex items-center gap-2 md:hidden">
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+						aria-pressed={theme === "dark"}
+						className="text-[var(--color-foreground-subtle)]"
+						onClick={toggleTheme}
+					>
+						{theme === "dark" ? <FiSun className="text-xl" /> : <FiMoon className="text-xl" />}
+					</Button>
 					<Button
 						type="button"
 						variant="ghost"
@@ -96,13 +140,13 @@ export default function NavigationBar() {
 						aria-controls="mobile-navigation"
 						aria-label="Toggle menu"
 						onClick={() => setMenuOpen((open) => !open)}
-						className="text-[rgba(90,79,79,0.9)]"
+						className="text-[var(--color-foreground-subtle)]"
 					>
 						{menuOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
 					</Button>
 					<div
 						id="mobile-navigation"
-						className={`absolute right-0 top-12 w-48 rounded-xl border border-black/10 bg-white py-2 text-sm shadow-lg transition ${
+						className={`absolute right-0 top-12 w-48 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2 text-sm shadow-lg transition ${
 							menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
 						} ${menuOpen ? "animate-ui-fade-down" : ""}`}
 					>

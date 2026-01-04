@@ -16,10 +16,10 @@ const variantClasses: Record<ButtonVariant, string> = {
 		"bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]",
 	accent:
 		"bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]",
-	accentDeep: "bg-[var(--color-accent-deep)] text-white hover:bg-[#6f3b25]",
+	accentDeep: "bg-[var(--color-accent-deep)] text-white hover:bg-[var(--color-accent-deep-hover)]",
 	outline:
-		"border border-[var(--color-accent-deep)] text-[var(--color-accent-deep)] hover:border-[#6f3b25] hover:bg-[rgba(139,74,47,0.08)]",
-	ghost: "text-[rgba(90,79,79,0.9)] hover:bg-black/5",
+		"border border-[var(--color-accent-deep)] text-[var(--color-accent-deep)] hover:border-[var(--color-accent-deep-hover)] hover:bg-[var(--color-accent-overlay)]",
+	ghost: "text-[var(--color-foreground-subtle)] hover:bg-[var(--color-overlay)]",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

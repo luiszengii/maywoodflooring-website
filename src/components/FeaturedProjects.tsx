@@ -33,7 +33,7 @@ const projects = [
 
 export default function FeaturedProjects() {
 	return (
-		<section className="bg-[#f7f5f2] py-16 md:py-20">
+		<section className="bg-[var(--color-surface-muted)] py-16 md:py-20">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="mb-8 space-y-2">
 					<h2 className="text-[length:var(--font-size-h4)] font-bold">Featured Projects</h2>

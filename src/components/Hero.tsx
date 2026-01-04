@@ -4,14 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import {
 	Typography,
 	Grid,
-	TextField,
 	Box,
-	InputAdornment,
-	Paper,
 	Button,
 	Container,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 
 export default function Hero() {
 	const [scrollProgress, setScrollProgress] = useState(0);
@@ -71,47 +67,71 @@ export default function Hero() {
 						Hard Flooring Specialists
 					</Typography>
 					<Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-						Australia&apos;s largest wholesale supplier of timber & timber look
-						flooring including laminate, hybrid, bamboo, cork and vinyl.
+						Wholesale supply, a walk-in retail showroom, and on-site design plus
+						installation support for timber and timber-look flooring across
+						Melbourne.
 					</Typography>
 
-					<Paper
-						elevation={0}
-						sx={{
-							display: "flex",
-							mb: 6,
-							border: "1px solid #e0e0e0",
-							borderRadius: "4px",
-							overflow: "hidden",
-						}}
-					>
-						<TextField
-							fullWidth
-							placeholder="Search site"
-							variant="outlined"
-							InputProps={{
-								sx: { borderRadius: 0 },
-								startAdornment: (
-									<InputAdornment position="start">
-										<SearchIcon />
-									</InputAdornment>
-								),
-							}}
+					<Box sx={{ mb: 6 }}>
+						<Box
 							sx={{
-								"& .MuiOutlinedInput-notchedOutline": { border: "none" },
-							}}
-						/>
-						<Button
-							variant="contained"
-							color="primary"
-							sx={{
-								borderRadius: 0,
-								px: 3,
+								display: "flex",
+								flexWrap: "wrap",
+								gap: 2,
+								alignItems: "center",
 							}}
 						>
-							Search
+							<Button
+								variant="contained"
+								size="large"
+								sx={{
+									backgroundColor: "#C46A3B",
+									color: "#ffffff",
+									"&:hover": { backgroundColor: "#A8562E" },
+								}}
+							>
+								Wholesale Enquiries
+							</Button>
+							<Button
+								variant="contained"
+								size="large"
+								sx={{
+									backgroundColor: "#8B4A2F",
+									color: "#ffffff",
+									"&:hover": { backgroundColor: "#6F3B25" },
+								}}
+							>
+								Book a Design Consult
+							</Button>
+							<Button
+								variant="outlined"
+								size="large"
+								sx={{
+									borderColor: "#8B4A2F",
+									color: "#8B4A2F",
+									"&:hover": {
+										borderColor: "#6F3B25",
+										backgroundColor: "rgba(139, 74, 47, 0.08)",
+									},
+								}}
+							>
+								Shop the Showroom
+							</Button>
+						</Box>
+						<Button
+							variant="text"
+							color="inherit"
+							sx={{
+								display: "block",
+								mt: 2,
+								p: 0,
+								textTransform: "none",
+								fontWeight: 500,
+							}}
+						>
+							Trusted by builders across Melbourne
 						</Button>
-					</Paper>
+					</Box>
 				</Grid>
 
 				<Grid item xs={12} md={6}>

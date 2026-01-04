@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { ShimmerButton } from "@/components/ui/ShimmerButton";
 
 export default function Hero() {
 	const [scrollProgress, setScrollProgress] = useState(0);
@@ -77,14 +78,11 @@ export default function Hero() {
 
 					<div className="animate-ui-fade-up animate-ui-delay-2 mt-6 space-y-4">
 						<div className="flex flex-wrap items-center gap-3">
-							<Button type="button" variant="accent" className="shadow-md">
-								Wholesale Enquiries
-							</Button>
-							<Button type="button" variant="accentDeep" className="shadow-md">
-								Book a Design Consult
-							</Button>
-							<Button type="button" variant="outline">
+							<ShimmerButton type="button" className="shadow-md">
 								Shop the Showroom
+							</ShimmerButton>
+							<Button type="button" variant="outline" className="shadow-md">
+								Book a Design Consult
 							</Button>
 						</div>
 						<Button

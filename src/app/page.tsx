@@ -19,9 +19,11 @@ export default function Home() {
 					description:
 						"Melbourne's premier flooring specialist offering hardwood, laminate, vinyl & hybrid flooring solutions.",
 					address: {
-						"@type": "3152",
+						"@type": "PostalAddress",
 						streetAddress: "Suffolk St, Wantirna South",
-						addressLocality: "Melbourne",
+						addressLocality: "Wantirna South",
+						addressRegion: "VIC",
+						postalCode: "3152",
 						addressCountry: "AU",
 					},
 					geo: {
@@ -30,8 +32,53 @@ export default function Home() {
 						longitude: "145.21667000",
 					},
 					url: "https://australia-maywood.com",
-					telephone: "YOUR_PHONE",
+					telephone: "+61 3 9801 0555",
 					priceRange: "$$",
+					hasOfferCatalog: {
+						"@type": "OfferCatalog",
+						name: "Flooring Products & Services",
+						itemListElement: [
+							{
+								"@type": "OfferCatalog",
+								name: "Flooring Products",
+								itemListElement: [
+									{
+										"@type": "Offer",
+										itemOffered: { "@type": "Product", name: "Hardwood Flooring" },
+									},
+									{
+										"@type": "Offer",
+										itemOffered: { "@type": "Product", name: "Laminate Flooring" },
+									},
+									{
+										"@type": "Offer",
+										itemOffered: { "@type": "Product", name: "Vinyl Flooring" },
+									},
+									{
+										"@type": "Offer",
+										itemOffered: { "@type": "Product", name: "Hybrid Flooring" },
+									},
+								],
+							},
+							{
+								"@type": "OfferCatalog",
+								name: "Flooring Services",
+								itemListElement: [
+									{
+										"@type": "Offer",
+										itemOffered: {
+											"@type": "Service",
+											name: "Supply & Installation",
+										},
+									},
+									{
+										"@type": "Offer",
+										itemOffered: { "@type": "Service", name: "Wholesale Supply" },
+									},
+								],
+							},
+						],
+					},
 				})}
 			</script>
 			<NavigationBar />

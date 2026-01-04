@@ -49,10 +49,14 @@ export default function Services() {
 		<section className="mx-auto max-w-6xl px-4 pb-8 pt-6">
 			<h2 className="mb-6 text-[length:var(--font-size-h4)] font-bold">Services</h2>
 			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-				{services.map((service) => (
+				{services.map((service, index) => (
 					<Card
 						key={service.title}
-						className="flex h-full flex-col p-6"
+						className={`animate-ui-fade-up animate-ui-hover-lift flex h-full flex-col p-6 ${
+							index === 0 ? "animate-ui-delay-1" : ""
+						} ${index === 1 ? "animate-ui-delay-2" : ""} ${
+							index === 2 ? "animate-ui-delay-3" : ""
+						} ${index === 3 ? "animate-ui-delay-4" : ""}`}
 					>
 						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5 text-[var(--color-foreground)]">
 							{service.icon}

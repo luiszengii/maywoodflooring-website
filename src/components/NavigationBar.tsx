@@ -46,12 +46,12 @@ export default function NavigationBar() {
 
 	return (
 		<header className="border-b border-black/10 bg-[var(--color-surface)] py-6">
-			<div className="mx-auto flex max-w-6xl items-center justify-between px-4">
+			<div className="animate-ui-fade-down mx-auto flex max-w-6xl items-center justify-between px-4">
 				<div className="flex items-center gap-4">
 					<img
 						src="/images/maywoodflooringlogo.jpg"
 						alt="Maywood Flooring Logo"
-						className="h-[65px] w-auto transition-transform duration-300 hover:scale-105"
+						className="animate-ui-hover-lift h-[65px] w-auto"
 					/>
 				</div>
 
@@ -104,7 +104,7 @@ export default function NavigationBar() {
 						id="mobile-navigation"
 						className={`absolute right-0 top-12 w-48 rounded-xl border border-black/10 bg-white py-2 text-sm shadow-lg transition ${
 							menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-						}`}
+						} ${menuOpen ? "animate-ui-fade-down" : ""}`}
 					>
 						{["Products", "Brands", "Resources", "Search"].map((label) => (
 							<Button

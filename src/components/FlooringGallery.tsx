@@ -60,11 +60,13 @@ export default function FlooringGallery() {
 				</div>
 
 				<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-					{flooringOptions.map((option) => (
+					{flooringOptions.map((option, index) => (
 						<Card
 							key={option.name}
 							as="article"
-							className="overflow-hidden border border-[#e8e1d9]"
+							className={`animate-ui-fade-up animate-ui-hover-lift overflow-hidden border border-[#e8e1d9] ${
+								index < 3 ? "animate-ui-delay-1" : "animate-ui-delay-2"
+							}`}
 						>
 							<img
 								src={option.image}

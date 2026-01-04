@@ -44,18 +44,20 @@ export default function ProductGallery() {
 			</h2>
 
 			<div className="grid gap-6 md:grid-cols-3">
-				{products.map((product) => (
+				{products.map((product, index) => (
 					<Card
 						key={product.title}
 						as="article"
-						className={`group overflow-hidden border-transparent shadow-[var(--shadow-medium)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-strong)] ${
+						className={`animate-ui-fade-up animate-ui-hover-lift overflow-hidden border-transparent shadow-[var(--shadow-medium)] ${
 							product.spanTwo ? "md:row-span-2" : ""
+						} ${index < 4 ? "animate-ui-delay-1" : ""} ${
+							index >= 4 ? "animate-ui-delay-2" : ""
 						}`}
 					>
 						<img
 							src={product.image}
 							alt={product.title}
-							className={`w-full object-cover transition duration-300 ${
+							className={`w-full object-cover ${
 								product.spanTwo
 									? "h-72 md:h-full md:min-h-[584px]"
 									: "h-72"
@@ -71,7 +73,7 @@ export default function ProductGallery() {
 			</div>
 
 			<div className="mt-12 grid gap-6 md:grid-cols-2">
-				<Card className="p-6">
+				<Card className="animate-ui-fade-up animate-ui-delay-1 animate-ui-hover-lift p-6">
 					<h3 className="text-[length:var(--font-size-h5)] font-bold">
 						Wholesale
 					</h3>
@@ -89,7 +91,7 @@ export default function ProductGallery() {
 						</Button>
 					</div>
 				</Card>
-				<Card className="p-6">
+				<Card className="animate-ui-fade-up animate-ui-delay-2 animate-ui-hover-lift p-6">
 					<h3 className="text-[length:var(--font-size-h5)] font-bold">Retail</h3>
 					<p className="mt-3 text-sm text-[var(--color-foreground)]">
 						Explore our curated ranges, expert advice, and samples to find the perfect

@@ -5,9 +5,28 @@ import { Button } from "@/components/ui/Button";
 
 export default function Hero() {
 	const [scrollProgress, setScrollProgress] = useState(0);
+	const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 	const imageRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+		setPrefersReducedMotion(mediaQuery.matches);
+
+		const handlePreferenceChange = () => {
+			setPrefersReducedMotion(mediaQuery.matches);
+		};
+
+		mediaQuery.addEventListener("change", handlePreferenceChange);
+
+		return () => mediaQuery.removeEventListener("change", handlePreferenceChange);
+	}, []);
+
+	useEffect(() => {
+		if (prefersReducedMotion) {
+			setScrollProgress(0);
+			return;
+		}
+
 		let ticking = false;
 
 		const handleScroll = () => {
@@ -32,7 +51,7 @@ export default function Hero() {
 		handleScroll();
 
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	}, [prefersReducedMotion]);
 
 	const animationStyle = {
 		transform: `scale(${1 + scrollProgress * 0.15}) translateY(${scrollProgress * 20}px)`,
@@ -47,16 +66,16 @@ export default function Hero() {
 		<section className="mx-auto max-w-6xl px-4 pb-6 pt-8">
 			<div className="grid gap-8 md:grid-cols-2 md:items-center">
 				<div>
-					<h1 className="text-[length:var(--font-size-display)] font-bold">
+					<h1 className="animate-ui-fade-up text-[length:var(--font-size-display)] font-bold">
 						Hard Flooring Specialists
 					</h1>
-					<p className="mt-4 text-lg text-[var(--color-muted)]">
+					<p className="animate-ui-fade-up animate-ui-delay-1 mt-4 text-lg text-[var(--color-muted)]">
 						Wholesale supply, a walk-in retail showroom, and on-site design plus
 						installation support for timber and timber-look flooring across
 						Melbourne.
 					</p>
 
-					<div className="mt-6 space-y-4">
+					<div className="animate-ui-fade-up animate-ui-delay-2 mt-6 space-y-4">
 						<div className="flex flex-wrap items-center gap-3">
 							<Button type="button" variant="accent" className="shadow-md">
 								Wholesale Enquiries
@@ -79,7 +98,10 @@ export default function Hero() {
 					</div>
 				</div>
 
-				<div ref={imageRef} className="relative h-[450px] md:h-[600px]">
+				<div
+					ref={imageRef}
+					className="animate-ui-fade-in animate-ui-delay-3 relative h-[450px] md:h-[600px]"
+				>
 					<img
 						src="/images/interior.jpg"
 						alt="Elegant interior with herringbone wooden flooring"

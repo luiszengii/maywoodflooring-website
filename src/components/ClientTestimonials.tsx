@@ -39,11 +39,15 @@ export default function ClientTestimonials() {
 			</div>
 
 			<div className="grid gap-6 md:grid-cols-3">
-				{testimonials.map((testimonial) => (
+				{testimonials.map((testimonial, index) => (
 					<Card
 						key={testimonial.name}
 						as="article"
-						className="border-transparent p-6"
+						className={`animate-ui-fade-up animate-ui-hover-lift border-transparent p-6 ${
+							index === 0 ? "animate-ui-delay-1" : ""
+						} ${index === 1 ? "animate-ui-delay-2" : ""} ${
+							index === 2 ? "animate-ui-delay-3" : ""
+						}`}
 					>
 						<p className="mb-4 text-sm italic text-[var(--color-foreground)]">
 							“{testimonial.quote}”

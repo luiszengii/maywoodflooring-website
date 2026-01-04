@@ -110,6 +110,32 @@ main {
 	}
 }
 
+@keyframes animate-ui-float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes animate-ui-word-rotate {
+	0% {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	20%,
+	80% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+}
+
 @layer utilities {
 	.animate-ui-fade-in {
 		animation: animate-ui-fade-in var(--animate-ui-duration) var(--animate-ui-ease) both;
@@ -150,6 +176,19 @@ main {
 		transform: translateY(calc(var(--animate-ui-hover-translate) * -1));
 		box-shadow: var(--shadow-medium);
 	}
+
+	.animate-ui-float {
+		animation: animate-ui-float 6s ease-in-out infinite;
+	}
+
+	.animate-ui-float-slow {
+		animation: animate-ui-float 8s ease-in-out infinite;
+	}
+
+	.animate-ui-word-rotate {
+		animation: animate-ui-word-rotate var(--word-rotate-duration, 2400ms)
+			var(--animate-ui-ease) both;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -163,6 +202,13 @@ main {
 	.animate-ui-hover-lift,
 	.animate-ui-hover-lift:hover {
 		transition-duration: 1ms;
+		transform: none;
+	}
+
+	.animate-ui-float,
+	.animate-ui-float-slow,
+	.animate-ui-word-rotate {
+		animation: none;
 		transform: none;
 	}
 }

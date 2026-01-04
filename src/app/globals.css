@@ -18,6 +18,10 @@
 	--font-size-h4: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);
 	--font-size-h5: 1.5rem;
 	--font-size-h6: 1.25rem;
+	--animate-ui-duration: 520ms;
+	--animate-ui-delay: 120ms;
+	--animate-ui-ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--animate-ui-hover-translate: 6px;
 }
 
 @theme inline {
@@ -73,4 +77,92 @@ body {
 div[data-nextjs-root-layout],
 main {
 	background-color: transparent;
+}
+
+@keyframes animate-ui-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes animate-ui-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes animate-ui-fade-down {
+	from {
+		opacity: 0;
+		transform: translateY(-12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@layer utilities {
+	.animate-ui-fade-in {
+		animation: animate-ui-fade-in var(--animate-ui-duration) var(--animate-ui-ease) both;
+	}
+
+	.animate-ui-fade-up {
+		animation: animate-ui-fade-up var(--animate-ui-duration) var(--animate-ui-ease) both;
+	}
+
+	.animate-ui-fade-down {
+		animation: animate-ui-fade-down var(--animate-ui-duration) var(--animate-ui-ease) both;
+	}
+
+	.animate-ui-delay-1 {
+		animation-delay: var(--animate-ui-delay);
+	}
+
+	.animate-ui-delay-2 {
+		animation-delay: calc(var(--animate-ui-delay) * 2);
+	}
+
+	.animate-ui-delay-3 {
+		animation-delay: calc(var(--animate-ui-delay) * 3);
+	}
+
+	.animate-ui-delay-4 {
+		animation-delay: calc(var(--animate-ui-delay) * 4);
+	}
+
+	.animate-ui-hover-lift {
+		transition:
+			transform var(--animate-ui-duration) var(--animate-ui-ease),
+			box-shadow var(--animate-ui-duration) var(--animate-ui-ease);
+		will-change: transform;
+	}
+
+	.animate-ui-hover-lift:hover {
+		transform: translateY(calc(var(--animate-ui-hover-translate) * -1));
+		box-shadow: var(--shadow-medium);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-ui-fade-in,
+	.animate-ui-fade-up,
+	.animate-ui-fade-down {
+		animation: none;
+		transform: none;
+	}
+
+	.animate-ui-hover-lift,
+	.animate-ui-hover-lift:hover {
+		transition-duration: 1ms;
+		transform: none;
+	}
 }

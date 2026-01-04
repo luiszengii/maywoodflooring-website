@@ -43,11 +43,15 @@ export default function FeaturedProjects() {
 				</div>
 
 				<div className="grid gap-6 md:grid-cols-3">
-					{projects.map((project) => (
+					{projects.map((project, index) => (
 						<Card
 							key={project.title}
 							as="article"
-							className="flex h-full flex-col overflow-hidden border-transparent shadow-[var(--shadow-medium)]"
+							className={`animate-ui-fade-up animate-ui-hover-lift flex h-full flex-col overflow-hidden border-transparent shadow-[var(--shadow-medium)] ${
+								index === 0 ? "animate-ui-delay-1" : ""
+							} ${index === 1 ? "animate-ui-delay-2" : ""} ${
+								index === 2 ? "animate-ui-delay-3" : ""
+							}`}
 						>
 							<img
 								src={project.image}

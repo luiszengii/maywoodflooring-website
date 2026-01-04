@@ -1,28 +1,12 @@
 "use client";
 
-import { Box, CircularProgress, Typography } from "@mui/material";
-
 export default function LoadingScreen() {
-  return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#362b22",
-        zIndex: 9999,
-      }}
-    >
-      <CircularProgress sx={{ color: "#ffffff", mb: 2 }} />
-      <Typography variant="h6" sx={{ color: "#ffffff" }}>
-        Loading Images...Please Wait......
-      </Typography>
-    </Box>
-  );
+	return (
+		<div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#362b22]">
+			<div className="h-10 w-10 animate-spin rounded-full border-4 border-white/40 border-t-white" />
+			<p className="mt-3 text-sm font-semibold text-white">
+				Loading Images...Please Wait......
+			</p>
+		</div>
+	);
 }

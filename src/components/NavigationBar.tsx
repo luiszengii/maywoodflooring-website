@@ -1,161 +1,72 @@
 "use client";
 
-import {
-	AppBar,
-	Toolbar,
-	Typography,
-	Button,
-	Container,
-	Box,
-	IconButton,
-	Menu,
-	MenuItem,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
+import { FiChevronDown, FiMenu, FiSearch, FiX } from "react-icons/fi";
 
 export default function NavigationBar() {
-	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-	const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
-
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
+	const [menuOpen, setMenuOpen] = React.useState(false);
 
 	return (
-		<AppBar
-			position="static"
-			color="transparent"
-			elevation={0}
-			sx={{
-				py: 1.5,
-				bgcolor: "rgb(255,255,255)",
-				borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
-			}}
-		>
-			<Container maxWidth="lg">
-				<Toolbar disableGutters>
-					{/* Logo section with increased size */}
-					<Typography
-						variant="h6"
-						component="div"
-						sx={{
-							flexGrow: 1,
-							display: "flex",
-							alignItems: "center",
-							flexWrap: "wrap",
-						}}
+		<header className="border-b border-black/10 bg-[var(--color-surface)] py-6">
+			<div className="mx-auto flex max-w-6xl items-center justify-between px-4">
+				<div className="flex items-center gap-4">
+					<img
+						src="/images/maywoodflooringlogo.jpg"
+						alt="Maywood Flooring Logo"
+						className="h-[65px] w-auto transition-transform duration-300 hover:scale-105"
+					/>
+				</div>
+
+				<nav className="hidden items-center gap-6 text-sm font-medium text-[rgba(90,79,79,0.8)] md:flex">
+					{["Products", "Brands", "Resources"].map((label) => (
+						<button
+							key={label}
+							type="button"
+							className="flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-black/5"
+						>
+							{label}
+							<FiChevronDown className="text-base" />
+						</button>
+					))}
+					<button
+						type="button"
+						className="rounded-full p-2 transition hover:bg-black/5"
+						aria-label="Search"
 					>
-						<Box
-							component="img"
-							src="/images/maywoodflooringlogo.jpg"
-							alt="Maywood Flooring Logo"
-							sx={{
-								height: "65px",
-								width: "auto",
-								transition: "transform 0.3s ease-in-out",
-								"&:hover": {
-									transform: "scale(1.05)",
-								},
-							}}
-						/>
-					</Typography>
+						<FiSearch className="text-lg" />
+					</button>
+				</nav>
 
-					{/* Desktop menu with improved spacing */}
-					<Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
-						<Button
-							color="inherit"
-							endIcon={<KeyboardArrowDownIcon />}
-							sx={{
-								color: "rgba(90, 79, 79, 0.8)",
-								fontWeight: 500,
-								"&:hover": {
-									backgroundColor: "rgba(0, 0, 0, 0.03)",
-								},
-							}}
-						>
-							Products
-						</Button>
-						<Button
-							color="inherit"
-							endIcon={<KeyboardArrowDownIcon />}
-							sx={{
-								color: "rgba(90, 79, 79, 0.8)",
-								fontWeight: 500,
-								"&:hover": {
-									backgroundColor: "rgba(0, 0, 0, 0.03)",
-								},
-							}}
-						>
-							Brands
-						</Button>
-						<Button
-							color="inherit"
-							endIcon={<KeyboardArrowDownIcon />}
-							sx={{
-								color: "rgba(90, 79, 79, 0.8)",
-								fontWeight: 500,
-								"&:hover": {
-									backgroundColor: "rgba(0, 0, 0, 0.03)",
-								},
-							}}
-						>
-							Resources
-						</Button>
-						<IconButton
-							color="inherit"
-							sx={{
-								ml: 1,
-								color: "rgba(90, 79, 79, 0.8)",
-								"&:hover": {
-									backgroundColor: "rgba(0, 0, 0, 0.03)",
-								},
-							}}
-						>
-							<SearchIcon />
-						</IconButton>
-					</Box>
-
-					{/* Mobile menu */}
-					<Box sx={{ display: { xs: "flex", md: "none" } }}>
-						<IconButton
-							size="large"
-							aria-label="menu"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleMenu}
-							sx={{ color: "rgba(90, 79, 79, 0.8)" }}
-						>
-							<MenuIcon />
-						</IconButton>
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorEl}
-							anchorOrigin={{
-								vertical: "top",
-								horizontal: "right",
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: "top",
-								horizontal: "right",
-							}}
-							open={Boolean(anchorEl)}
-							onClose={handleClose}
-						>
-							<MenuItem onClick={handleClose}>Products</MenuItem>
-							<MenuItem onClick={handleClose}>Brands</MenuItem>
-							<MenuItem onClick={handleClose}>Resources</MenuItem>
-							<MenuItem onClick={handleClose}>Search</MenuItem>
-						</Menu>
-					</Box>
-				</Toolbar>
-			</Container>
-		</AppBar>
+				<div className="relative md:hidden">
+					<button
+						type="button"
+						aria-expanded={menuOpen}
+						aria-label="Toggle menu"
+						onClick={() => setMenuOpen((open) => !open)}
+						className="rounded-full p-2 text-[rgba(90,79,79,0.8)] transition hover:bg-black/5"
+					>
+						{menuOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
+					</button>
+					<div
+						className={`absolute right-0 top-12 w-48 rounded-xl border border-black/10 bg-white py-2 text-sm shadow-lg transition ${
+							menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+						}`}
+					>
+						{["Products", "Brands", "Resources", "Search"].map((label) => (
+							<button
+								key={label}
+								type="button"
+								className="flex w-full items-center justify-between px-4 py-2 text-left text-[rgba(90,79,79,0.9)] transition hover:bg-black/5"
+								onClick={() => setMenuOpen(false)}
+							>
+								{label}
+								{label !== "Search" && <FiChevronDown className="text-base" />}
+								{label === "Search" && <FiSearch className="text-base" />}
+							</button>
+						))}
+					</div>
+				</div>
+			</div>
+		</header>
 	);
 }

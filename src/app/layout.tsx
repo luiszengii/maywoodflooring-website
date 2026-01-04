@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import ThemeRegistry from "../components/ThemeRegistry";
 import "./globals.css";
 
 const geist = Geist({
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 		siteName: "May Wood Flooring",
 		images: [
 			{
-				url: "/floors/vinyl-flooring.jpg", // Add your OG image
+				url: "/floors/vinyl-flooring.jpg",
 				width: 1200,
 				height: 630,
 			},
@@ -36,9 +35,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={geist.className}>
-				<ThemeRegistry>{children}</ThemeRegistry>
-			</body>
+			<body className={geist.className}>{children}</body>
 		</html>
 	);
 }

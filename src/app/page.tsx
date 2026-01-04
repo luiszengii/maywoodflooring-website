@@ -1,6 +1,5 @@
 "use client";
 
-import { Box } from "@mui/material";
 import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -13,7 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
 	return (
-		<Box component="div">
+		<main>
 			<script type="application/ld+json">
 				{JSON.stringify({
 					"@context": "https://schema.org",
@@ -48,19 +47,31 @@ export default function Home() {
 								itemListElement: [
 									{
 										"@type": "Offer",
-										itemOffered: { "@type": "Product", name: "Hardwood Flooring" },
+										itemOffered: {
+											"@type": "Product",
+											name: "Hardwood Flooring",
+										},
 									},
 									{
 										"@type": "Offer",
-										itemOffered: { "@type": "Product", name: "Laminate Flooring" },
+										itemOffered: {
+											"@type": "Product",
+											name: "Laminate Flooring",
+										},
 									},
 									{
 										"@type": "Offer",
-										itemOffered: { "@type": "Product", name: "Vinyl Flooring" },
+										itemOffered: {
+											"@type": "Product",
+											name: "Vinyl Flooring",
+										},
 									},
 									{
 										"@type": "Offer",
-										itemOffered: { "@type": "Product", name: "Hybrid Flooring" },
+										itemOffered: {
+											"@type": "Product",
+											name: "Hybrid Flooring",
+										},
 									},
 								],
 							},
@@ -77,7 +88,10 @@ export default function Home() {
 									},
 									{
 										"@type": "Offer",
-										itemOffered: { "@type": "Service", name: "Wholesale Supply" },
+										itemOffered: {
+											"@type": "Service",
+											name: "Wholesale Supply",
+										},
 									},
 								],
 							},
@@ -94,6 +108,6 @@ export default function Home() {
 			<ProductGallery />
 			<ClientTestimonials />
 			<Footer />
-		</Box>
+		</main>
 	);
 }

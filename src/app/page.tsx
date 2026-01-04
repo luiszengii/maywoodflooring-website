@@ -5,6 +5,7 @@ import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
 import ProductGallery from "@/components/ProductGallery";
 import FlooringGallery from "@/components/FlooringGallery";
+import TrustCredentials from "@/components/TrustCredentials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -84,6 +85,7 @@ export default function Home() {
 			<NavigationBar />
 			<Hero />
 			<FlooringGallery />
+			<TrustCredentials />
 			<ProductGallery />
 			<Footer />
 		</Box>

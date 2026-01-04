@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/Card";
+import { Marquee } from "@/components/ui/Marquee";
 
 const stats = [
 	{ label: "20+ years", detail: "Trusted flooring specialists" },
@@ -47,7 +48,7 @@ export default function TrustCredentials() {
 						))}
 					</div>
 
-					<div className="grid items-center gap-3 sm:grid-cols-3 md:grid-cols-5">
+					<Marquee className="py-1 [--marquee-duration:26s] [--marquee-gap:1rem]">
 						{partners.map((partner) => (
 							<Card
 								key={partner.name}
@@ -56,11 +57,11 @@ export default function TrustCredentials() {
 								<img
 									src={partner.logo}
 									alt={`${partner.name} logo`}
-									className="h-8 w-auto"
+									className="h-8 w-auto grayscale transition duration-300 ease-out hover:grayscale-0"
 								/>
 							</Card>
 						))}
-					</div>
+					</Marquee>
 				</div>
 			</div>
 		</section>

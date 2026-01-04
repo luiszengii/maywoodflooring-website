@@ -110,6 +110,21 @@ main {
 	}
 }
 
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - var(--marquee-gap)));
+	}
+}
+
+@keyframes marquee-reverse {
+	from {
+		transform: translateX(calc(-100% - var(--marquee-gap)));
+	}
+	to {
+		transform: translateX(0);
 @keyframes animate-ui-float {
 	0%,
 	100% {
@@ -183,6 +198,12 @@ main {
 		box-shadow: var(--shadow-medium);
 	}
 
+	.animate-marquee {
+		animation: marquee var(--marquee-duration, 20s) linear infinite;
+	}
+
+	.animate-marquee-reverse {
+		animation: marquee-reverse var(--marquee-duration, 20s) linear infinite;
 	.animate-ui-float {
 		animation: animate-ui-float 6s ease-in-out infinite;
 	}
@@ -217,6 +238,10 @@ main {
 		transform: none;
 	}
 
+	.animate-marquee,
+	.animate-marquee-reverse {
+		animation-duration: 1ms;
+		animation-iteration-count: 1;
 	.animate-ui-float,
 	.animate-ui-float-slow,
 	.animate-ui-word-rotate {

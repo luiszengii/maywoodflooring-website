@@ -1,5 +1,7 @@
 "use client";
 
+import { Card } from "@/components/ui/Card";
+
 const services = [
 	{
 		title: "On-site measurement",
@@ -48,9 +50,9 @@ export default function Services() {
 			<h2 className="mb-6 text-[length:var(--font-size-h4)] font-bold">Services</h2>
 			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
 				{services.map((service) => (
-					<div
+					<Card
 						key={service.title}
-						className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-[var(--shadow-soft)]"
+						className="flex h-full flex-col p-6"
 					>
 						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5 text-[var(--color-foreground)]">
 							{service.icon}
@@ -61,7 +63,7 @@ export default function Services() {
 						<p className="mt-2 text-sm text-[var(--color-muted)]">
 							{service.description}
 						</p>
-					</div>
+					</Card>
 				))}
 			</div>
 		</section>

@@ -2,9 +2,47 @@
 
 import React from "react";
 import { FiChevronDown, FiMenu, FiSearch, FiX } from "react-icons/fi";
+import { Button } from "@/components/ui/Button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/DropdownMenu";
+
+const navigationItems = [
+	{
+		label: "Products",
+		items: ["Timber Flooring", "Hybrid Ranges", "Laminate Floors", "Vinyl Planks"],
+	},
+	{
+		label: "Brands",
+		items: ["European Collections", "Australian Suppliers", "Premium Imports"],
+	},
+	{
+		label: "Resources",
+		items: ["Design Guides", "Care & Maintenance", "FAQs"],
+	},
+];
 
 export default function NavigationBar() {
 	const [menuOpen, setMenuOpen] = React.useState(false);
+
+	React.useEffect(() => {
+		if (!menuOpen) {
+			return;
+		}
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				setMenuOpen(false);
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [menuOpen]);
 
 	return (
 		<header className="border-b border-black/10 bg-[var(--color-surface)] py-6">
@@ -17,52 +55,70 @@ export default function NavigationBar() {
 					/>
 				</div>
 
-				<nav className="hidden items-center gap-6 text-sm font-medium text-[rgba(90,79,79,0.8)] md:flex">
-					{["Products", "Brands", "Resources"].map((label) => (
-						<button
-							key={label}
-							type="button"
-							className="flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-black/5"
-						>
-							{label}
-							<FiChevronDown className="text-base" />
-						</button>
+				<nav className="hidden items-center gap-4 md:flex">
+					{navigationItems.map((item) => (
+						<DropdownMenu key={item.label}>
+							<DropdownMenuTrigger asChild>
+								<Button
+									type="button"
+									variant="ghost"
+									size="sm"
+									className="gap-2 px-3 py-2 text-sm font-medium"
+								>
+									{item.label}
+									<FiChevronDown className="text-base" />
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent align="end">
+								{item.items.map((entry) => (
+									<DropdownMenuItem key={entry}>{entry}</DropdownMenuItem>
+								))}
+							</DropdownMenuContent>
+						</DropdownMenu>
 					))}
-					<button
+					<Button
 						type="button"
-						className="rounded-full p-2 transition hover:bg-black/5"
+						variant="ghost"
+						size="icon"
 						aria-label="Search"
+						className="text-[rgba(90,79,79,0.9)]"
 					>
 						<FiSearch className="text-lg" />
-					</button>
+					</Button>
 				</nav>
 
 				<div className="relative md:hidden">
-					<button
+					<Button
 						type="button"
+						variant="ghost"
+						size="icon"
 						aria-expanded={menuOpen}
+						aria-controls="mobile-navigation"
 						aria-label="Toggle menu"
 						onClick={() => setMenuOpen((open) => !open)}
-						className="rounded-full p-2 text-[rgba(90,79,79,0.8)] transition hover:bg-black/5"
+						className="text-[rgba(90,79,79,0.9)]"
 					>
 						{menuOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
-					</button>
+					</Button>
 					<div
+						id="mobile-navigation"
 						className={`absolute right-0 top-12 w-48 rounded-xl border border-black/10 bg-white py-2 text-sm shadow-lg transition ${
 							menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
 						}`}
 					>
 						{["Products", "Brands", "Resources", "Search"].map((label) => (
-							<button
+							<Button
 								key={label}
 								type="button"
-								className="flex w-full items-center justify-between px-4 py-2 text-left text-[rgba(90,79,79,0.9)] transition hover:bg-black/5"
+								variant="ghost"
+								size="sm"
+								className="w-full justify-between rounded-lg px-4 py-2 text-left font-medium"
 								onClick={() => setMenuOpen(false)}
 							>
 								{label}
 								{label !== "Search" && <FiChevronDown className="text-base" />}
 								{label === "Search" && <FiSearch className="text-base" />}
-							</button>
+							</Button>
 						))}
 					</div>
 				</div>

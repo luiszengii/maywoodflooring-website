@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/Button";
 
 export default function Hero() {
 	const [scrollProgress, setScrollProgress] = useState(0);
@@ -57,31 +58,24 @@ export default function Hero() {
 
 					<div className="mt-6 space-y-4">
 						<div className="flex flex-wrap items-center gap-3">
-							<button
-								type="button"
-								className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[var(--color-accent-dark)]"
-							>
+							<Button type="button" variant="accent" className="shadow-md">
 								Wholesale Enquiries
-							</button>
-							<button
-								type="button"
-								className="rounded-full bg-[var(--color-accent-deep)] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#6f3b25]"
-							>
+							</Button>
+							<Button type="button" variant="accentDeep" className="shadow-md">
 								Book a Design Consult
-							</button>
-							<button
-								type="button"
-								className="rounded-full border border-[var(--color-accent-deep)] px-5 py-3 text-sm font-semibold text-[var(--color-accent-deep)] transition hover:border-[#6f3b25] hover:bg-[rgba(139,74,47,0.08)]"
-							>
+							</Button>
+							<Button type="button" variant="outline">
 								Shop the Showroom
-							</button>
+							</Button>
 						</div>
-						<button
+						<Button
 							type="button"
-							className="text-sm font-semibold text-[var(--color-foreground)]"
+							variant="ghost"
+							size="sm"
+							className="text-[var(--color-foreground)]"
 						>
 							Trusted by builders across Melbourne
-						</button>
+						</Button>
 					</div>
 				</div>
 

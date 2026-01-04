@@ -1,5 +1,8 @@
 "use client";
 
+import { Avatar } from "@/components/ui/Avatar";
+import { Card } from "@/components/ui/Card";
+
 const testimonials = [
 	{
 		quote:
@@ -37,17 +40,18 @@ export default function ClientTestimonials() {
 
 			<div className="grid gap-6 md:grid-cols-3">
 				{testimonials.map((testimonial) => (
-					<article
+					<Card
 						key={testimonial.name}
-						className="rounded-2xl bg-white p-6 shadow-[var(--shadow-soft)]"
+						as="article"
+						className="border-transparent p-6"
 					>
 						<p className="mb-4 text-sm italic text-[var(--color-foreground)]">
 							“{testimonial.quote}”
 						</p>
 						<div className="flex items-center gap-3">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-sm font-semibold text-white">
+							<Avatar>
 								{testimonial.initials}
-							</div>
+							</Avatar>
 							<div>
 								<p className="text-sm font-semibold text-[var(--color-foreground)]">
 									{testimonial.name}
@@ -57,7 +61,7 @@ export default function ClientTestimonials() {
 								</p>
 							</div>
 						</div>
-					</article>
+					</Card>
 				))}
 			</div>
 		</section>

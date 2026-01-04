@@ -4,13 +4,15 @@ import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa"
 import { RiWechatFill } from "react-icons/ri";
 import { SiXiaohongshu } from "react-icons/si";
 import Copyright from "@/components/Copyright";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 export default function Footer() {
 	return (
 		<footer className="mt-8 bg-[var(--color-background)] pb-10 pt-12">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="grid gap-8">
-					<div className="rounded-2xl border border-black/10 bg-white p-6 md:p-8">
+					<Card className="p-6 md:p-8">
 						<div className="grid gap-6 md:grid-cols-2">
 							<div>
 								<h3 className="text-[length:var(--font-size-h5)] font-semibold">
@@ -44,12 +46,13 @@ export default function Footer() {
 										<option value="commercial">Commercial</option>
 										<option value="restoration">Restoration</option>
 									</select>
-									<button
+									<Button
 										type="submit"
-										className="w-fit rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+										size="sm"
+										className="w-fit"
 									>
 										Request consultation
-									</button>
+									</Button>
 								</form>
 							</div>
 							<div>
@@ -68,7 +71,7 @@ export default function Footer() {
 								</p>
 							</div>
 						</div>
-					</div>
+					</Card>
 
 					<div className="grid gap-8 md:grid-cols-[1fr_2fr_1fr] md:items-start">
 						<div className="text-center md:text-left">

@@ -1,5 +1,8 @@
 "use client";
 
+import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
+
 const projects = [
 	{
 		title: "Bayside Family Residence",
@@ -41,9 +44,10 @@ export default function FeaturedProjects() {
 
 				<div className="grid gap-6 md:grid-cols-3">
 					{projects.map((project) => (
-						<article
+						<Card
 							key={project.title}
-							className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-medium)]"
+							as="article"
+							className="flex h-full flex-col overflow-hidden border-transparent shadow-[var(--shadow-medium)]"
 						>
 							<img
 								src={project.image}
@@ -59,19 +63,14 @@ export default function FeaturedProjects() {
 								</p>
 								<div className="mt-3 flex flex-wrap gap-2">
 									{project.tags.map((tag) => (
-										<span
-											key={tag}
-											className="rounded-full bg-[#ede4d6] px-3 py-1 text-xs font-medium text-[var(--color-foreground)]"
-										>
-											{tag}
-										</span>
+										<Badge key={tag}>{tag}</Badge>
 									))}
 								</div>
 								<p className="mt-4 text-sm font-semibold text-[var(--color-primary)]">
 									{project.timeline}
 								</p>
 							</div>
-						</article>
+						</Card>
 					))}
 				</div>
 			</div>

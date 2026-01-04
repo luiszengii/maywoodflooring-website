@@ -1,5 +1,8 @@
 "use client";
 
+import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
+
 const flooringOptions = [
 	{
 		name: "European Oak – Natural",
@@ -58,9 +61,10 @@ export default function FlooringGallery() {
 
 				<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
 					{flooringOptions.map((option) => (
-						<article
+						<Card
 							key={option.name}
-							className="overflow-hidden rounded-2xl border border-[#e8e1d9] bg-white"
+							as="article"
+							className="overflow-hidden border border-[#e8e1d9]"
 						>
 							<img
 								src={option.image}
@@ -79,12 +83,10 @@ export default function FlooringGallery() {
 									<p className="text-sm font-semibold text-[var(--color-foreground)]">
 										{option.price}
 									</p>
-									<span className="rounded-full bg-[#ede4d6] px-3 py-1 text-xs font-medium text-[var(--color-foreground)]">
-										In stock
-									</span>
+									<Badge>In stock</Badge>
 								</div>
 							</div>
-						</article>
+						</Card>
 					))}
 				</div>
 			</div>

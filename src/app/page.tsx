@@ -4,6 +4,7 @@ import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import RenovationPromo from "@/components/RenovationPromo";
 import ProductGallery from "@/components/ProductGallery";
 import FlooringGallery from "@/components/FlooringGallery";
 import ClientTestimonials from "@/components/ClientTestimonials";
@@ -103,6 +104,7 @@ export default function Home() {
 			<Hero />
 			<Services />
 			<FeaturedProjects />
+			<RenovationPromo />
 			<FlooringGallery />
 			<TrustCredentials />
 			<ProductGallery />

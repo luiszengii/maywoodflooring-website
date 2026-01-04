@@ -26,18 +26,18 @@ export default function Footer() {
 										type="text"
 										name="name"
 										placeholder="Name"
-										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
+										className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm"
 									/>
 									<input
 										type="email"
 										name="email"
 										placeholder="Email"
-										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
+										className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm"
 									/>
 									<select
 										name="project-type"
 										defaultValue=""
-										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
+										className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm"
 									>
 										<option value="" disabled>
 											Select one
@@ -124,22 +124,46 @@ export default function Footer() {
 						</div>
 
 						<div className="flex justify-center gap-3 text-xl text-[var(--color-foreground)] md:justify-end">
-							<a href="#facebook" aria-label="Facebook" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#facebook"
+								aria-label="Facebook"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<FaFacebookF />
 							</a>
-							<a href="#instagram" aria-label="Instagram" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#instagram"
+								aria-label="Instagram"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<FaInstagram />
 							</a>
-							<a href="#youtube" aria-label="YouTube" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#youtube"
+								aria-label="YouTube"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<FaYoutube />
 							</a>
-							<a href="#whatsapp" aria-label="WhatsApp" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#whatsapp"
+								aria-label="WhatsApp"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<FaWhatsapp />
 							</a>
-							<a href="#wechat" aria-label="WeChat" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#wechat"
+								aria-label="WeChat"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<RiWechatFill />
 							</a>
-							<a href="#xiaohongshu" aria-label="Xiaohongshu" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+							<a
+								href="#xiaohongshu"
+								aria-label="Xiaohongshu"
+								className="rounded-full border border-[var(--color-border)] p-2 transition hover:bg-[var(--color-overlay)]"
+							>
 								<SiXiaohongshu />
 							</a>
 						</div>

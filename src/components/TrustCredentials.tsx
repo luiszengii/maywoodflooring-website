@@ -38,7 +38,7 @@ const partners = [
 
 export default function TrustCredentials() {
 	return (
-		<section className="bg-[#f3efe9] py-10">
+		<section className="bg-[var(--color-surface-muted)] py-10">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="space-y-6">
 					<div>

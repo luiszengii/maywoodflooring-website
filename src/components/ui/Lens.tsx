@@ -27,6 +27,7 @@ export function Lens({
 	const [hoverCapable, setHoverCapable] = React.useState(true);
 	const [lensPosition, setLensPosition] = React.useState({ x: 0, y: 0 });
 	const [backgroundPosition, setBackgroundPosition] = React.useState("50% 50%");
+	const [backgroundSize, setBackgroundSize] = React.useState("200% 200%");
 
 	React.useEffect(() => {
 		if (typeof window === "undefined") {
@@ -41,6 +42,30 @@ export function Lens({
 
 		return () => mediaQuery.removeEventListener("change", updateHoverCapable);
 	}, []);
+
+	React.useEffect(() => {
+		if (!containerRef.current) {
+			return;
+		}
+
+		const updateBackgroundSize = () => {
+			if (!containerRef.current) {
+				return;
+			}
+
+			const rect = containerRef.current.getBoundingClientRect();
+			const width = rect.width * zoomScale;
+			const height = rect.height * zoomScale;
+			setBackgroundSize(`${width}px ${height}px`);
+		};
+
+		updateBackgroundSize();
+
+		const observer = new ResizeObserver(updateBackgroundSize);
+		observer.observe(containerRef.current);
+
+		return () => observer.disconnect();
+	}, [zoomScale]);
 
 	const handlePointerMove = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (!containerRef.current) {
@@ -79,7 +104,7 @@ export function Lens({
 						backgroundImage: `url(${zoomSrc ?? src})`,
 						backgroundPosition,
 						backgroundRepeat: "no-repeat",
-						backgroundSize: `${zoomScale * 100}% ${zoomScale * 100}%`,
+						backgroundSize,
 					}}
 				/>
 			) : null}

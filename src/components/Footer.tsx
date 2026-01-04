@@ -7,6 +7,11 @@ import {
 	Grid,
 	Box,
 	IconButton,
+	TextField,
+	FormControl,
+	InputLabel,
+	Select,
+	MenuItem,
 } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -21,6 +26,77 @@ export default function Footer() {
 		<Box component="footer" sx={{ bgcolor: "#f5f5f5", pt: 6, pb: 4, mt: 8 }}>
 			<Container maxWidth="lg">
 				<Grid container spacing={4} alignItems="flex-start">
+					<Grid item xs={12}>
+						<Box
+							sx={{
+								border: "1px solid #e0e0e0",
+								borderRadius: 2,
+								p: { xs: 3, md: 4 },
+								bgcolor: "#ffffff",
+							}}
+						>
+							<Grid container spacing={3}>
+								<Grid item xs={12} md={6}>
+									<Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+										Book a Consultation
+									</Typography>
+									<Typography variant="body2" sx={{ mb: 2, color: "text.secondary" }}>
+										Tell us about your project and we will be in touch.
+									</Typography>
+									<Box
+										component="form"
+										noValidate
+										sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+									>
+										<TextField label="Name" name="name" size="small" />
+										<TextField
+											label="Email"
+											name="email"
+											type="email"
+											size="small"
+										/>
+										<FormControl size="small">
+											<InputLabel id="project-type-label">
+												Project type
+											</InputLabel>
+											<Select
+												labelId="project-type-label"
+												label="Project type"
+												defaultValue=""
+											>
+												<MenuItem value="">
+													<em>Select one</em>
+												</MenuItem>
+												<MenuItem value="residential">Residential</MenuItem>
+												<MenuItem value="commercial">Commercial</MenuItem>
+												<MenuItem value="restoration">Restoration</MenuItem>
+											</Select>
+										</FormControl>
+										<Button variant="contained" sx={{ alignSelf: "flex-start" }}>
+											Request consultation
+										</Button>
+									</Box>
+								</Grid>
+								<Grid item xs={12} md={6}>
+									<Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+										Contact info
+									</Typography>
+									<Typography variant="body2" sx={{ mb: 1 }}>
+										Phone: (310) 555-0198
+									</Typography>
+									<Typography variant="body2" sx={{ mb: 1 }}>
+										Email: hello@maywoodfloors.com
+									</Typography>
+									<Typography variant="body2" sx={{ mb: 1 }}>
+										Showroom: 123 Maple Avenue, Maywood, CA 90270
+									</Typography>
+									<Typography variant="body2">
+										Hours: Mon–Fri 9am–6pm, Sat 10am–4pm
+									</Typography>
+								</Grid>
+							</Grid>
+						</Box>
+					</Grid>
 					{/* Logo */}
 					<Grid item xs={12} md={3} sx={{ mb: { xs: 3, md: 0 } }}>
 						<Typography

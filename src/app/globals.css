@@ -110,6 +110,24 @@ main {
 	}
 }
 
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - var(--marquee-gap)));
+	}
+}
+
+@keyframes marquee-reverse {
+	from {
+		transform: translateX(calc(-100% - var(--marquee-gap)));
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
 @layer utilities {
 	.animate-ui-fade-in {
 		animation: animate-ui-fade-in var(--animate-ui-duration) var(--animate-ui-ease) both;
@@ -150,6 +168,14 @@ main {
 		transform: translateY(calc(var(--animate-ui-hover-translate) * -1));
 		box-shadow: var(--shadow-medium);
 	}
+
+	.animate-marquee {
+		animation: marquee var(--marquee-duration, 20s) linear infinite;
+	}
+
+	.animate-marquee-reverse {
+		animation: marquee-reverse var(--marquee-duration, 20s) linear infinite;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -164,5 +190,11 @@ main {
 	.animate-ui-hover-lift:hover {
 		transition-duration: 1ms;
 		transform: none;
+	}
+
+	.animate-marquee,
+	.animate-marquee-reverse {
+		animation-duration: 1ms;
+		animation-iteration-count: 1;
 	}
 }

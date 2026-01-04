@@ -84,6 +84,9 @@
 		--color-border: #2f2823;
 		--color-surface-muted: #2a241f;
 		--color-overlay: rgba(255, 255, 255, 0.08);
+		--color-primary-overlay: rgba(111, 180, 166, 0.16);
+		--color-accent-deep-hover: #c27b54;
+		--color-accent-overlay: rgba(197, 122, 85, 0.18);
 		--color-primary: #6fb4a6;
 		--color-primary-dark: #579487;
 		--color-accent: #d98a5f;

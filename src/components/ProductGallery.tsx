@@ -1,38 +1,31 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { BentoGrid, BentoGridItem } from "@/components/ui/BentoGrid";
 import { Card } from "@/components/ui/Card";
 
-const products = [
+const productHighlights = [
 	{
-		title: "Timber Flooring",
+		title: "Engineered Timber",
+		description: "Signature planks with warm, natural variation.",
 		image: "/floors/timber-flooring.jpg",
-		spanTwo: true,
+		className: "md:col-span-2 md:row-span-2",
 	},
 	{
-		title: "Laminate Flooring",
+		title: "Installation Services",
+		description: "Precision fitting from subfloor to finishing trim.",
+		image: "/images/interior2.jpg",
+		className: "md:row-span-2",
+	},
+	{
+		title: "Laminate",
+		description: "Scratch-resistant styles for busy homes.",
 		image: "/floors/laminate-flooring.jpg",
 	},
 	{
-		title: "Hybrid Flooring",
+		title: "Hybrid",
+		description: "Waterproof comfort with real-wood texture.",
 		image: "/floors/hybrid-flooring.jpg",
-	},
-	{
-		title: "Vinyl Flooring",
-		image: "/floors/vinyl-flooring.jpg",
-	},
-	{
-		title: "Premium Collection",
-		image: "/images/premium-collection.jpg",
-		spanTwo: true,
-	},
-	{
-		title: "Bamboo Flooring",
-		image: "/floors/bamboo-flooring.jpg",
-	},
-	{
-		title: "Special Edition",
-		image: "/floors/special-edition.jpg",
 	},
 ];
 
@@ -43,34 +36,19 @@ export default function ProductGallery() {
 				Our Products
 			</h2>
 
-			<div className="grid gap-6 md:grid-cols-3">
-				{products.map((product, index) => (
-					<Card
+			<BentoGrid>
+				{productHighlights.map((product, index) => (
+					<BentoGridItem
 						key={product.title}
-						as="article"
-						className={`animate-ui-fade-up animate-ui-hover-lift overflow-hidden border-transparent shadow-[var(--shadow-medium)] ${
-							product.spanTwo ? "md:row-span-2" : ""
-						} ${index < 4 ? "animate-ui-delay-1" : ""} ${
-							index >= 4 ? "animate-ui-delay-2" : ""
-						}`}
-					>
-						<img
-							src={product.image}
-							alt={product.title}
-							className={`w-full object-cover ${
-								product.spanTwo
-									? "h-72 md:h-full md:min-h-[584px]"
-									: "h-72"
-							}`}
-						/>
-						<div className="p-4">
-							<h3 className="text-base font-semibold text-[var(--color-foreground)]">
-								{product.title}
-							</h3>
-						</div>
-					</Card>
+						title={product.title}
+						description={product.description}
+						image={product.image}
+						className={`animate-ui-fade-up animate-ui-hover-lift ${
+							index < 2 ? "animate-ui-delay-1" : "animate-ui-delay-2"
+						} ${product.className ?? ""}`}
+					/>
 				))}
-			</div>
+			</BentoGrid>
 
 			<div className="mt-12 grid gap-6 md:grid-cols-2">
 				<Card className="animate-ui-fade-up animate-ui-delay-1 animate-ui-hover-lift p-6">

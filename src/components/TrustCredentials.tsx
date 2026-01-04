@@ -1,5 +1,7 @@
 "use client";
 
+import { Card } from "@/components/ui/Card";
+
 const stats = [
 	{ label: "20+ years", detail: "Trusted flooring specialists" },
 	{ label: "500+ installs", detail: "Completed across Victoria" },
@@ -31,9 +33,9 @@ export default function TrustCredentials() {
 
 					<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
 						{stats.map((stat) => (
-							<div
+							<Card
 								key={stat.label}
-								className="rounded-2xl border border-[var(--color-border)] bg-white p-4"
+								className="border-[var(--color-border)] p-4"
 							>
 								<p className="text-base font-semibold text-[var(--color-foreground)]">
 									{stat.label}
@@ -41,22 +43,22 @@ export default function TrustCredentials() {
 								<p className="mt-1 text-xs text-[var(--color-muted)]">
 									{stat.detail}
 								</p>
-							</div>
+							</Card>
 						))}
 					</div>
 
 					<div className="grid items-center gap-3 sm:grid-cols-3 md:grid-cols-5">
 						{partners.map((partner) => (
-							<div
+							<Card
 								key={partner.name}
-								className="flex items-center justify-center rounded-full border border-[var(--color-border)] bg-white px-4 py-3"
+								className="flex items-center justify-center rounded-full border-[var(--color-border)] px-4 py-3"
 							>
 								<img
 									src={partner.logo}
 									alt={`${partner.name} logo`}
 									className="h-8 w-auto"
 								/>
-							</div>
+							</Card>
 						))}
 					</div>
 				</div>

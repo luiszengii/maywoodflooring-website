@@ -1,5 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+
 const products = [
 	{
 		title: "Timber Flooring",
@@ -42,9 +45,10 @@ export default function ProductGallery() {
 
 			<div className="grid gap-6 md:grid-cols-3">
 				{products.map((product) => (
-					<article
+					<Card
 						key={product.title}
-						className={`group overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-medium)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-strong)] ${
+						as="article"
+						className={`group overflow-hidden border-transparent shadow-[var(--shadow-medium)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-strong)] ${
 							product.spanTwo ? "md:row-span-2" : ""
 						}`}
 					>
@@ -62,12 +66,12 @@ export default function ProductGallery() {
 								{product.title}
 							</h3>
 						</div>
-					</article>
+					</Card>
 				))}
 			</div>
 
 			<div className="mt-12 grid gap-6 md:grid-cols-2">
-				<div className="rounded-2xl border border-black/10 bg-white p-6">
+				<Card className="p-6">
 					<h3 className="text-[length:var(--font-size-h5)] font-bold">
 						Wholesale
 					</h3>
@@ -80,29 +84,28 @@ export default function ProductGallery() {
 						on stock.
 					</p>
 					<div className="mt-4">
-						<button
-							type="button"
-							className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
-						>
+						<Button type="button" size="sm">
 							Open a Trade Account
-						</button>
+						</Button>
 					</div>
-				</div>
-				<div className="rounded-2xl border border-black/10 bg-white p-6">
+				</Card>
+				<Card className="p-6">
 					<h3 className="text-[length:var(--font-size-h5)] font-bold">Retail</h3>
 					<p className="mt-3 text-sm text-[var(--color-foreground)]">
 						Explore our curated ranges, expert advice, and samples to find the perfect
 						floor for your home.
 					</p>
 					<div className="mt-4">
-						<button
+						<Button
 							type="button"
-							className="rounded-full border border-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[rgba(69,133,122,0.08)]"
+							variant="outline"
+							size="sm"
+							className="border-[var(--color-primary)] text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:bg-[rgba(69,133,122,0.08)]"
 						>
 							Visit Our Showroom
-						</button>
+						</Button>
 					</div>
-				</div>
+				</Card>
 			</div>
 		</section>
 	);

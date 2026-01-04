@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { WordRotate } from "@/components/ui/WordRotate";
 import { ShimmerButton } from "@/components/ui/ShimmerButton";
 
 export default function Hero() {
@@ -68,7 +69,11 @@ export default function Hero() {
 			<div className="grid gap-8 md:grid-cols-2 md:items-center">
 				<div>
 					<h1 className="animate-ui-fade-up text-[length:var(--font-size-display)] font-bold">
-						Hard Flooring Specialists
+						Flooring Designed for{" "}
+						<WordRotate
+							words={["Living", "Luxury", "Generations"]}
+							className="text-[var(--color-accent)]"
+						/>
 					</h1>
 					<p className="animate-ui-fade-up animate-ui-delay-1 mt-4 text-lg text-[var(--color-muted)]">
 						Wholesale supply, a walk-in retail showroom, and on-site design plus
@@ -100,18 +105,22 @@ export default function Hero() {
 					ref={imageRef}
 					className="animate-ui-fade-in animate-ui-delay-3 relative h-[450px] md:h-[600px]"
 				>
-					<img
-						src="/images/interior.jpg"
-						alt="Elegant interior with herringbone wooden flooring"
-						style={animationStyle}
-						className="absolute left-0 top-0 h-[90%] w-[85%] rounded-lg object-cover"
-					/>
-					<img
-						src="/images/interior2.jpg"
-						alt="Luxurious bathroom with wooden flooring"
-						style={animationStyle}
-						className="absolute bottom-0 right-0 h-[40%] w-[50%] rounded-lg object-cover"
-					/>
+					<div className="animate-ui-float absolute left-0 top-0 h-[90%] w-[85%]">
+						<img
+							src="/images/interior.jpg"
+							alt="Elegant interior with herringbone wooden flooring"
+							style={animationStyle}
+							className="h-full w-full rounded-lg object-cover"
+						/>
+					</div>
+					<div className="animate-ui-float-slow absolute bottom-0 right-0 h-[40%] w-[50%]">
+						<img
+							src="/images/interior2.jpg"
+							alt="Luxurious bathroom with wooden flooring"
+							style={animationStyle}
+							className="h-full w-full rounded-lg object-cover"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>

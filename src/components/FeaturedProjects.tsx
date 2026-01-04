@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { Lens } from "@/components/ui/Lens";
 
 const projects = [
 	{
@@ -53,10 +54,10 @@ export default function FeaturedProjects() {
 								index === 2 ? "animate-ui-delay-3" : ""
 							}`}
 						>
-							<img
+							<Lens
 								src={project.image}
 								alt={project.title}
-								className="h-56 w-full object-cover"
+								className="h-56 w-full"
 							/>
 							<div className="flex flex-1 flex-col p-5">
 								<h3 className="text-base font-semibold text-[var(--color-foreground)]">

@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
 import ProductGallery from "@/components/ProductGallery";
+import FlooringGallery from "@/components/FlooringGallery";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
 			</script>
 			<NavigationBar />
 			<Hero />
+			<FlooringGallery />
 			<ProductGallery />
 			<Footer />
 		</Box>

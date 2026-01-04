@@ -1,154 +1,109 @@
 "use client";
 
-import { Typography, Card, CardContent, CardMedia, Container, Box, Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-const GridContainer = styled(Box)(({ theme }) => ({
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "24px",
-  [theme.breakpoints.down("md")]: {
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    "& .span-two": {
-      gridRow: "auto",
-    },
-  },
-}));
-
-const GridItem = styled(Card)(({ theme }) => ({
-  height: "100%",
-  transition: "all 0.3s ease-in-out",
-  cursor: "pointer",
-  "& .MuiCardMedia-root": {
-    height: "280px",
-    objectFit: "cover",
-    transition: "all 0.3s ease-in-out",
-  },
-  "&:hover, &:active": {
-    transform: "scale(1.02) translateY(-4px)",
-    boxShadow: "0 12px 24px rgba(0,0,0,0.2)",
-  },
-  "&.span-two": {
-    gridRow: "span 2",
-    "& .MuiCardMedia-root": {
-      height: "100%",
-      minHeight: "584px",
-    },
-  },
-}));
-
-const OfferingsGrid = styled(Box)(({ theme }) => ({
-  display: "grid",
-  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-  gap: "24px",
-  marginTop: "48px",
-  [theme.breakpoints.down("md")]: {
-    gridTemplateColumns: "1fr",
-  },
-}));
+const products = [
+	{
+		title: "Timber Flooring",
+		image: "/floors/timber-flooring.jpg",
+		spanTwo: true,
+	},
+	{
+		title: "Laminate Flooring",
+		image: "/floors/laminate-flooring.jpg",
+	},
+	{
+		title: "Hybrid Flooring",
+		image: "/floors/hybrid-flooring.jpg",
+	},
+	{
+		title: "Vinyl Flooring",
+		image: "/floors/vinyl-flooring.jpg",
+	},
+	{
+		title: "Premium Collection",
+		image: "/images/premium-collection.jpg",
+		spanTwo: true,
+	},
+	{
+		title: "Bamboo Flooring",
+		image: "/floors/bamboo-flooring.jpg",
+	},
+	{
+		title: "Special Edition",
+		image: "/floors/special-edition.jpg",
+	},
+];
 
 export default function ProductGallery() {
-  return (
-    <Container maxWidth="lg" sx={{ mt: 8, mb: 6 }}>
-      <Typography variant="h4" component="h2" sx={{ mt: 8, mb: 4, fontWeight: "bold" }}>
-        Our Products
-      </Typography>
+	return (
+		<section className="mx-auto max-w-6xl px-4 pb-6 pt-8">
+			<h2 className="mb-6 text-[length:var(--font-size-h4)] font-bold">
+				Our Products
+			</h2>
 
-      <GridContainer>
-        {/* Timber Flooring - Spans 2 rows */}
-        <GridItem className="span-two">
-          <CardMedia component="img" image="/floors/timber-flooring.jpg" alt="Timber Flooring" />
-          <CardContent>
-            <Typography variant="h6">Timber Flooring</Typography>
-          </CardContent>
-        </GridItem>
+			<div className="grid gap-6 md:grid-cols-3">
+				{products.map((product) => (
+					<article
+						key={product.title}
+						className={`group overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-medium)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-strong)] ${
+							product.spanTwo ? "md:row-span-2" : ""
+						}`}
+					>
+						<img
+							src={product.image}
+							alt={product.title}
+							className={`w-full object-cover transition duration-300 ${
+								product.spanTwo
+									? "h-72 md:h-full md:min-h-[584px]"
+									: "h-72"
+							}`}
+						/>
+						<div className="p-4">
+							<h3 className="text-base font-semibold text-[var(--color-foreground)]">
+								{product.title}
+							</h3>
+						</div>
+					</article>
+				))}
+			</div>
 
-        {/* Laminate Flooring */}
-        <GridItem>
-          <CardMedia component="img" image="/floors/laminate-flooring.jpg" alt="Laminate Flooring" />
-          <CardContent>
-            <Typography variant="h6">Laminate Flooring</Typography>
-          </CardContent>
-        </GridItem>
-
-        {/* Hybrid Flooring */}
-        <GridItem>
-          <CardMedia component="img" image="/floors/hybrid-flooring.jpg" alt="Hybrid Flooring" />
-          <CardContent>
-            <Typography variant="h6">Hybrid Flooring</Typography>
-          </CardContent>
-        </GridItem>
-
-        {/* Vinyl Flooring */}
-        <GridItem>
-          <CardMedia component="img" image="/floors/vinyl-flooring.jpg" alt="Vinyl Flooring" />
-          <CardContent>
-            <Typography variant="h6">Vinyl Flooring</Typography>
-          </CardContent>
-        </GridItem>
-
-        {/* Premium Collection - Spans 2 rows */}
-        <GridItem className="span-two">
-          <CardMedia component="img" image="/images/premium-collection.jpg" alt="Premium Collection" />
-          <CardContent>
-            <Typography variant="h6">Premium Collection</Typography>
-          </CardContent>
-        </GridItem>
-
-        {/* Bamboo Flooring */}
-        <GridItem>
-          <CardMedia component="img" image="/floors/bamboo-flooring.jpg" alt="Bamboo Flooring" />
-          <CardContent>
-            <Typography variant="h6">Bamboo Flooring</Typography>
-          </CardContent>
-        </GridItem>
-
-        {/* Special Edition */}
-        <GridItem>
-          <CardMedia component="img" image="/floors/special-edition.jpg" alt="Special Edition" />
-          <CardContent>
-            <Typography variant="h6">Special Edition</Typography>
-          </CardContent>
-        </GridItem>
-      </GridContainer>
-
-      <OfferingsGrid>
-        <Card variant="outlined">
-          <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Typography variant="h5" component="h3" fontWeight="bold">
-              Wholesale
-            </Typography>
-            <Typography variant="body1">
-              Partner pricing, priority allocations, and tailored product support for builders and
-              installers.
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Minimum orders start at 120 m². Typical lead times are 2–4 weeks depending on stock.
-            </Typography>
-            <Box>
-              <Button variant="contained" color="primary">
-                Open a Trade Account
-              </Button>
-            </Box>
-          </CardContent>
-        </Card>
-        <Card variant="outlined">
-          <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Typography variant="h5" component="h3" fontWeight="bold">
-              Retail
-            </Typography>
-            <Typography variant="body1">
-              Explore our curated ranges, expert advice, and samples to find the perfect floor for
-              your home.
-            </Typography>
-            <Box>
-              <Button variant="outlined" color="primary">
-                Visit Our Showroom
-              </Button>
-            </Box>
-          </CardContent>
-        </Card>
-      </OfferingsGrid>
-    </Container>
-  );
+			<div className="mt-12 grid gap-6 md:grid-cols-2">
+				<div className="rounded-2xl border border-black/10 bg-white p-6">
+					<h3 className="text-[length:var(--font-size-h5)] font-bold">
+						Wholesale
+					</h3>
+					<p className="mt-3 text-sm text-[var(--color-foreground)]">
+						Partner pricing, priority allocations, and tailored product support for
+						builders and installers.
+					</p>
+					<p className="mt-2 text-sm text-[var(--color-muted)]">
+						Minimum orders start at 120 m². Typical lead times are 2–4 weeks depending
+						on stock.
+					</p>
+					<div className="mt-4">
+						<button
+							type="button"
+							className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+						>
+							Open a Trade Account
+						</button>
+					</div>
+				</div>
+				<div className="rounded-2xl border border-black/10 bg-white p-6">
+					<h3 className="text-[length:var(--font-size-h5)] font-bold">Retail</h3>
+					<p className="mt-3 text-sm text-[var(--color-foreground)]">
+						Explore our curated ranges, expert advice, and samples to find the perfect
+						floor for your home.
+					</p>
+					<div className="mt-4">
+						<button
+							type="button"
+							className="rounded-full border border-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[rgba(69,133,122,0.08)]"
+						>
+							Visit Our Showroom
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }

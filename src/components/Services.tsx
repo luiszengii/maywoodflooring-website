@@ -1,88 +1,69 @@
 "use client";
 
-import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
-import StraightenIcon from "@mui/icons-material/Straighten";
-import PaletteIcon from "@mui/icons-material/Palette";
-import HandymanIcon from "@mui/icons-material/Handyman";
-import SpaIcon from "@mui/icons-material/Spa";
-
 const services = [
 	{
 		title: "On-site measurement",
 		description: "Precise site checks to confirm levels, moisture, and fit.",
-		icon: StraightenIcon,
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M7 7v10m5-10v10m5-10v10" />
+			</svg>
+		),
 	},
 	{
 		title: "Design consultation",
 		description: "Curated finishes and layout advice tailored to your home.",
-		icon: PaletteIcon,
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M12 3c4.418 0 8 2.686 8 6s-3.582 6-8 6-8-2.686-8-6 3.582-6 8-6z" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M9 21c0-2.21 1.79-4 4-4s4 1.79 4 4" />
+			</svg>
+		),
 	},
 	{
 		title: "Installation & project management",
 		description: "End-to-end installation with clear timelines and care.",
-		icon: HandymanIcon,
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M3 7h6l3 10h9" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M6 7l2-3h8l2 3" />
+			</svg>
+		),
 	},
 	{
 		title: "Aftercare",
 		description: "Maintenance guidance to keep floors pristine for years.",
-		icon: SpaIcon,
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M12 4c4 3 6 6 6 9a6 6 0 1 1-12 0c0-3 2-6 6-9z" />
+			</svg>
+		),
 	},
 ];
 
 export default function Services() {
 	return (
-		<Container maxWidth="lg" sx={{ mt: 6, mb: 8 }}>
-			<Typography
-				variant="h4"
-				component="h2"
-				sx={{ mt: 4, mb: 4, fontWeight: "bold" }}
-			>
-				Services
-			</Typography>
-			<Grid container spacing={3}>
-				{services.map((service) => {
-					const Icon = service.icon;
-					return (
-						<Grid item xs={12} sm={6} md={3} key={service.title}>
-							<Card
-								sx={{
-									height: "100%",
-									borderRadius: "16px",
-									border: "1px solid rgba(0, 0, 0, 0.08)",
-									boxShadow: "0 10px 24px rgba(0, 0, 0, 0.06)",
-								}}
-							>
-								<CardContent sx={{ p: 3 }}>
-									<Box
-										sx={{
-											width: 52,
-											height: 52,
-											borderRadius: "16px",
-											display: "flex",
-											alignItems: "center",
-											justifyContent: "center",
-											backgroundColor: "rgba(17, 25, 40, 0.05)",
-											mb: 2,
-										}}
-									>
-										<Icon sx={{ fontSize: 28 }} />
-									</Box>
-									<Typography
-										variant="h6"
-										component="h3"
-										sx={{ fontWeight: 600, mb: 1 }}
-									>
-										{service.title}
-									</Typography>
-									<Typography variant="body2" color="text.secondary">
-										{service.description}
-									</Typography>
-								</CardContent>
-							</Card>
-						</Grid>
-					);
-				})}
-			</Grid>
-		</Container>
+		<section className="mx-auto max-w-6xl px-4 pb-8 pt-6">
+			<h2 className="mb-6 text-[length:var(--font-size-h4)] font-bold">Services</h2>
+			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+				{services.map((service) => (
+					<div
+						key={service.title}
+						className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-[var(--shadow-soft)]"
+					>
+						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5 text-[var(--color-foreground)]">
+							{service.icon}
+						</div>
+						<h3 className="text-base font-semibold text-[var(--color-foreground)]">
+							{service.title}
+						</h3>
+						<p className="mt-2 text-sm text-[var(--color-muted)]">
+							{service.description}
+						</p>
+					</div>
+				))}
+			</div>
+		</section>
 	);
 }

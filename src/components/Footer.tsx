@@ -1,251 +1,150 @@
 "use client";
 
-import {
-	Typography,
-	Button,
-	Container,
-	Grid,
-	Box,
-	IconButton,
-	TextField,
-	FormControl,
-	InputLabel,
-	Select,
-	MenuItem,
-} from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { RiWechatFill } from "react-icons/ri";
 import { SiXiaohongshu } from "react-icons/si";
 import Copyright from "@/components/Copyright";
 
 export default function Footer() {
 	return (
-		<Box component="footer" sx={{ bgcolor: "#f5f5f5", pt: 6, pb: 4, mt: 8 }}>
-			<Container maxWidth="lg">
-				<Grid container spacing={4} alignItems="flex-start">
-					<Grid item xs={12}>
-						<Box
-							sx={{
-								border: "1px solid #e0e0e0",
-								borderRadius: 2,
-								p: { xs: 3, md: 4 },
-								bgcolor: "#ffffff",
-							}}
-						>
-							<Grid container spacing={3}>
-								<Grid item xs={12} md={6}>
-									<Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-										Book a Consultation
-									</Typography>
-									<Typography variant="body2" sx={{ mb: 2, color: "text.secondary" }}>
-										Tell us about your project and we will be in touch.
-									</Typography>
-									<Box
-										component="form"
-										noValidate
-										sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+		<footer className="mt-8 bg-[var(--color-background)] pb-10 pt-12">
+			<div className="mx-auto max-w-6xl px-4">
+				<div className="grid gap-8">
+					<div className="rounded-2xl border border-black/10 bg-white p-6 md:p-8">
+						<div className="grid gap-6 md:grid-cols-2">
+							<div>
+								<h3 className="text-[length:var(--font-size-h5)] font-semibold">
+									Book a Consultation
+								</h3>
+								<p className="mt-2 text-sm text-[var(--color-muted)]">
+									Tell us about your project and we will be in touch.
+								</p>
+								<form className="mt-4 flex flex-col gap-3" noValidate>
+									<input
+										type="text"
+										name="name"
+										placeholder="Name"
+										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
+									/>
+									<input
+										type="email"
+										name="email"
+										placeholder="Email"
+										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
+									/>
+									<select
+										name="project-type"
+										defaultValue=""
+										className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
 									>
-										<TextField label="Name" name="name" size="small" />
-										<TextField
-											label="Email"
-											name="email"
-											type="email"
-											size="small"
-										/>
-										<FormControl size="small">
-											<InputLabel id="project-type-label">
-												Project type
-											</InputLabel>
-											<Select
-												labelId="project-type-label"
-												label="Project type"
-												defaultValue=""
-											>
-												<MenuItem value="">
-													<em>Select one</em>
-												</MenuItem>
-												<MenuItem value="residential">Residential</MenuItem>
-												<MenuItem value="commercial">Commercial</MenuItem>
-												<MenuItem value="restoration">Restoration</MenuItem>
-											</Select>
-										</FormControl>
-										<Button variant="contained" sx={{ alignSelf: "flex-start" }}>
-											Request consultation
-										</Button>
-									</Box>
-								</Grid>
-								<Grid item xs={12} md={6}>
-									<Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-										Contact info
-									</Typography>
-									<Typography variant="body2" sx={{ mb: 1 }}>
-										Phone: (310) 555-0198
-									</Typography>
-									<Typography variant="body2" sx={{ mb: 1 }}>
-										Email: hello@maywoodfloors.com
-									</Typography>
-									<Typography variant="body2" sx={{ mb: 1 }}>
-										Showroom: 123 Maple Avenue, Maywood, CA 90270
-									</Typography>
-									<Typography variant="body2">
-										Hours: Mon–Fri 9am–6pm, Sat 10am–4pm
-									</Typography>
-								</Grid>
-							</Grid>
-						</Box>
-					</Grid>
-					{/* Logo */}
-					<Grid item xs={12} md={3} sx={{ mb: { xs: 3, md: 0 } }}>
-						<Typography
-							variant="h6"
-							component="div"
-							sx={{
-								fontWeight: "bold",
-								textAlign: { xs: "center", md: "left" },
-							}}
-						>
-							MAY WOOD FLOORS
-						</Typography>
-					</Grid>
+										<option value="" disabled>
+											Select one
+										</option>
+										<option value="residential">Residential</option>
+										<option value="commercial">Commercial</option>
+										<option value="restoration">Restoration</option>
+									</select>
+									<button
+										type="submit"
+										className="w-fit rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+									>
+										Request consultation
+									</button>
+								</form>
+							</div>
+							<div>
+								<h4 className="text-base font-semibold">Contact info</h4>
+								<p className="mt-2 text-sm text-[var(--color-foreground)]">
+									Phone: (310) 555-0198
+								</p>
+								<p className="mt-1 text-sm text-[var(--color-foreground)]">
+									Email: hello@maywoodfloors.com
+								</p>
+								<p className="mt-1 text-sm text-[var(--color-foreground)]">
+									Showroom: 123 Maple Avenue, Maywood, CA 90270
+								</p>
+								<p className="mt-1 text-sm text-[var(--color-foreground)]">
+									Hours: Mon–Fri 9am–6pm, Sat 10am–4pm
+								</p>
+							</div>
+						</div>
+					</div>
 
-					{/* Footer Links */}
-					<Grid item xs={12} md={6}>
-						<Grid container spacing={2}>
-							<Grid item xs={4}>
-								<Typography
-									variant="h6"
-									gutterBottom
-									sx={{ textAlign: "left" }}
-								>
-									Products
-								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										alignItems: "flex-start",
-									}}
-								>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+					<div className="grid gap-8 md:grid-cols-[1fr_2fr_1fr] md:items-start">
+						<div className="text-center md:text-left">
+							<p className="text-sm font-bold tracking-wide">MAY WOOD FLOORS</p>
+						</div>
+
+						<div className="grid gap-6 text-sm sm:grid-cols-3">
+							<div>
+								<p className="font-semibold">Products</p>
+								<div className="mt-2 flex flex-col gap-2 text-[var(--color-muted)]">
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Flooring Products
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Our ranges
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Find a Stockist
-									</Button>
-								</Box>
-							</Grid>
-
-							<Grid item xs={4}>
-								<Typography
-									variant="h6"
-									gutterBottom
-									sx={{ textAlign: "left" }}
-								>
-									Company
-								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										alignItems: "flex-start",
-									}}
-								>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+								</div>
+							</div>
+							<div>
+								<p className="font-semibold">Company</p>
+								<div className="mt-2 flex flex-col gap-2 text-[var(--color-muted)]">
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										About us
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Contact us
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Sustainability
-									</Button>
-								</Box>
-							</Grid>
-
-							<Grid item xs={4}>
-								<Typography
-									variant="h6"
-									gutterBottom
-									sx={{ textAlign: "left" }}
-								>
-									Resources
-								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										alignItems: "flex-start",
-									}}
-								>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+								</div>
+							</div>
+							<div>
+								<p className="font-semibold">Resources</p>
+								<div className="mt-2 flex flex-col gap-2 text-[var(--color-muted)]">
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Customer portal
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Academy
-									</Button>
-									<Button sx={{ justifyContent: "flex-start", px: 0, py: 0.5 }}>
+									</button>
+									<button type="button" className="text-left hover:text-[var(--color-foreground)]">
 										Legal
-									</Button>
-								</Box>
-							</Grid>
-						</Grid>
-					</Grid>
+									</button>
+								</div>
+							</div>
+						</div>
 
-					{/* Social Links */}
-					<Grid
-						item
-						xs={12}
-						md={3}
-						sx={{ textAlign: { xs: "center", md: "right" } }}
-					>
-						<Box
-							sx={{
-								display: "flex",
-								justifyContent: { xs: "center", md: "flex-end" },
-								gap: 2,
-							}}
-						>
-							<IconButton aria-label="Facebook" component="a" href="#facebook">
-								<FacebookIcon />
-							</IconButton>
-							<IconButton
-								aria-label="Instagram"
-								component="a"
-								href="#instagram"
-							>
-								<InstagramIcon />
-							</IconButton>
-							<IconButton aria-label="YouTube" component="a" href="#youtube">
-								<YouTubeIcon />
-							</IconButton>
-							<IconButton aria-label="WhatsApp" component="a" href="#whatsapp">
-								<WhatsAppIcon />
-							</IconButton>
-							<IconButton aria-label="WeChat" component="a" href="#wechat">
+						<div className="flex justify-center gap-3 text-xl text-[var(--color-foreground)] md:justify-end">
+							<a href="#facebook" aria-label="Facebook" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+								<FaFacebookF />
+							</a>
+							<a href="#instagram" aria-label="Instagram" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+								<FaInstagram />
+							</a>
+							<a href="#youtube" aria-label="YouTube" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+								<FaYoutube />
+							</a>
+							<a href="#whatsapp" aria-label="WhatsApp" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
+								<FaWhatsapp />
+							</a>
+							<a href="#wechat" aria-label="WeChat" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
 								<RiWechatFill />
-							</IconButton>
-							<IconButton
-								aria-label="Xiaohongshu"
-								component="a"
-								href="#xiaohongshu"
-							>
+							</a>
+							<a href="#xiaohongshu" aria-label="Xiaohongshu" className="rounded-full border border-black/10 p-2 transition hover:bg-black/5">
 								<SiXiaohongshu />
-							</IconButton>
-						</Box>
-					</Grid>
+							</a>
+						</div>
+					</div>
 
-					{/* Copyright */}
-					<Grid item xs={12} sx={{ mt: 4 }}>
-						<Copyright />
-					</Grid>
-				</Grid>
-			</Container>
-		</Box>
+					<Copyright />
+				</div>
+			</div>
+		</footer>
 	);
 }

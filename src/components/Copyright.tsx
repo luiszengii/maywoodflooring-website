@@ -1,17 +1,9 @@
-// src/components/Copyright.tsx
 "use client";
-
-import { Typography } from "@mui/material";
 
 export default function Copyright() {
 	return (
-		<Typography
-			variant="body2"
-			color="text.secondary"
-			align="center"
-			sx={{ mt: 4 }}
-		>
+		<p className="mt-6 text-center text-xs text-[var(--color-muted)]">
 			© {new Date().getFullYear()} May Wood Flooring
-		</Typography>
+		</p>
 	);
 }

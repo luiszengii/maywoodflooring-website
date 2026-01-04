@@ -1,7 +1,5 @@
 "use client";
 
-import { Box, Container, Stack, Typography } from "@mui/material";
-
 const stats = [
 	{ label: "20+ years", detail: "Trusted flooring specialists" },
 	{ label: "500+ installs", detail: "Completed across Victoria" },
@@ -19,77 +17,50 @@ const partners = [
 
 export default function TrustCredentials() {
 	return (
-		<Box component="section" sx={{ py: { xs: 4, md: 6 }, bgcolor: "#f3efe9" }}>
-			<Container maxWidth="lg">
-				<Stack spacing={3}>
-					<Box>
-						<Typography variant="overline" sx={{ letterSpacing: 2, color: "text.secondary" }}>
-							Trust & Credentials
-						</Typography>
-						<Typography variant="h5" component="h2" sx={{ fontWeight: 700, mt: 1 }}>
+		<section className="bg-[#f3efe9] py-10">
+			<div className="mx-auto max-w-6xl px-4">
+				<div className="space-y-6">
+					<div>
+						<p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+							Trust &amp; Credentials
+						</p>
+						<h2 className="mt-2 text-[length:var(--font-size-h5)] font-bold">
 							Proven experience, trusted partners
-						</Typography>
-					</Box>
+						</h2>
+					</div>
 
-					<Box
-						sx={{
-							display: "grid",
-							gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" },
-							gap: 2,
-						}}
-					>
+					<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
 						{stats.map((stat) => (
-							<Box
+							<div
 								key={stat.label}
-								sx={{
-									p: 2,
-									borderRadius: 2,
-									bgcolor: "#fff",
-									border: "1px solid #e6ded2",
-								}}
+								className="rounded-2xl border border-[var(--color-border)] bg-white p-4"
 							>
-								<Typography variant="h6" sx={{ fontWeight: 700 }}>
+								<p className="text-base font-semibold text-[var(--color-foreground)]">
 									{stat.label}
-								</Typography>
-								<Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+								</p>
+								<p className="mt-1 text-xs text-[var(--color-muted)]">
 									{stat.detail}
-								</Typography>
-							</Box>
+								</p>
+							</div>
 						))}
-					</Box>
+					</div>
 
-					<Box
-						sx={{
-							display: "grid",
-							gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(3, 1fr)", md: "repeat(5, 1fr)" },
-							gap: 2,
-							alignItems: "center",
-						}}
-					>
-					{partners.map((partner) => (
-						<Box
-							key={partner.name}
-							sx={{
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								py: 1.5,
-								borderRadius: 999,
-								bgcolor: "#fff",
-								border: "1px solid #e6ded2",
-							}}
-						>
-							<Box
-								component="img"
-								src={partner.logo}
-								alt={`${partner.name} logo`}
-								sx={{ height: 32, width: "auto" }}
-							/>
-						</Box>
-					))}
-					</Box>
-				</Stack>
-			</Container>
-		</Box>
+					<div className="grid items-center gap-3 sm:grid-cols-3 md:grid-cols-5">
+						{partners.map((partner) => (
+							<div
+								key={partner.name}
+								className="flex items-center justify-center rounded-full border border-[var(--color-border)] bg-white px-4 py-3"
+							>
+								<img
+									src={partner.logo}
+									alt={`${partner.name} logo`}
+									className="h-8 w-auto"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
 	);
 }

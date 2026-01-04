@@ -1,17 +1,5 @@
 "use client";
 
-import {
-	Box,
-	Card,
-	CardContent,
-	CardMedia,
-	Chip,
-	Container,
-	Divider,
-	Stack,
-	Typography,
-} from "@mui/material";
-
 const flooringOptions = [
 	{
 		name: "European Oak – Natural",
@@ -53,49 +41,53 @@ const flooringOptions = [
 
 export default function FlooringGallery() {
 	return (
-		<Box component="section" sx={{ py: { xs: 6, md: 8 }, bgcolor: "#faf8f5" }}>
-			<Container maxWidth="lg">
-				<Stack spacing={2} sx={{ mb: 4 }}>
-					<Typography variant="overline" sx={{ letterSpacing: 2 }}>
+		<section className="bg-[#faf8f5] py-12 md:py-16">
+			<div className="mx-auto max-w-6xl px-4">
+				<div className="mb-6 space-y-2">
+					<p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
 						Flooring gallery
-					</Typography>
-					<Typography variant="h4" component="h2" sx={{ fontWeight: 700 }}>
+					</p>
+					<h2 className="text-[length:var(--font-size-h4)] font-bold">
 						Explore timber and timber-look ranges
-					</Typography>
-					<Typography variant="body1" color="text.secondary" sx={{ maxWidth: 640 }}>
-						Compare popular finishes across solid, engineered, and timber-look collections. Pricing is indicative per square metre.
-					</Typography>
-				</Stack>
+					</h2>
+					<p className="max-w-2xl text-sm text-[var(--color-muted)] md:text-base">
+						Compare popular finishes across solid, engineered, and timber-look
+						collections. Pricing is indicative per square metre.
+					</p>
+				</div>
 
-				<Box
-					sx={{
-						display: "grid",
-						gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
-						gap: 3,
-					}}
-				>
+				<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
 					{flooringOptions.map((option) => (
-						<Card key={option.name} elevation={0} sx={{ borderRadius: 3, border: "1px solid #e8e1d9" }}>
-							<CardMedia component="img" image={option.image} alt={option.name} sx={{ height: 220 }} />
-							<CardContent>
-								<Typography variant="h6" sx={{ fontWeight: 600 }}>
+						<article
+							key={option.name}
+							className="overflow-hidden rounded-2xl border border-[#e8e1d9] bg-white"
+						>
+							<img
+								src={option.image}
+								alt={option.name}
+								className="h-56 w-full object-cover"
+							/>
+							<div className="p-4">
+								<h3 className="text-base font-semibold text-[var(--color-foreground)]">
 									{option.name}
-								</Typography>
-								<Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+								</h3>
+								<p className="mt-1 text-sm text-[var(--color-muted)]">
 									{option.material}
-								</Typography>
-								<Divider sx={{ my: 2 }} />
-								<Stack direction="row" justifyContent="space-between" alignItems="center">
-									<Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+								</p>
+								<hr className="my-4 border-[#e8e1d9]" />
+								<div className="flex items-center justify-between">
+									<p className="text-sm font-semibold text-[var(--color-foreground)]">
 										{option.price}
-									</Typography>
-									<Chip label="In stock" size="small" sx={{ bgcolor: "#ede4d6" }} />
-								</Stack>
-							</CardContent>
-						</Card>
+									</p>
+									<span className="rounded-full bg-[#ede4d6] px-3 py-1 text-xs font-medium text-[var(--color-foreground)]">
+										In stock
+									</span>
+								</div>
+							</div>
+						</article>
 					))}
-				</Box>
-			</Container>
-		</Box>
+				</div>
+			</div>
+		</section>
 	);
 }

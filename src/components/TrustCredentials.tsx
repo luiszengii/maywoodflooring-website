@@ -1,12 +1,30 @@
 "use client";
 
+import { BlurFade } from "@/components/magicui/BlurFade";
+import { NumberTicker } from "@/components/magicui/NumberTicker";
 import { Card } from "@/components/ui/Card";
 
 const stats = [
-	{ label: "20+ years", detail: "Trusted flooring specialists" },
-	{ label: "500+ installs", detail: "Completed across Victoria" },
+	{
+		value: 20,
+		suffix: "+",
+		label: "years",
+		detail: "Trusted flooring specialists",
+	},
+	{
+		value: 500,
+		suffix: "+",
+		label: "installs",
+		detail: "Completed across Victoria",
+	},
 	{ label: "Nationwide shipping", detail: "Fast delivery options" },
-	{ label: "4.9/5 rating", detail: "Loved by homeowners" },
+	{
+		value: 4.9,
+		decimals: 1,
+		suffix: "/5",
+		label: "rating",
+		detail: "Loved by homeowners",
+	},
 ];
 
 const partners = [
@@ -33,17 +51,27 @@ export default function TrustCredentials() {
 
 					<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
 						{stats.map((stat) => (
-							<Card
-								key={stat.label}
-								className="border-[var(--color-border)] p-4"
-							>
-								<p className="text-base font-semibold text-[var(--color-foreground)]">
-									{stat.label}
-								</p>
-								<p className="mt-1 text-xs text-[var(--color-muted)]">
-									{stat.detail}
-								</p>
-							</Card>
+							<BlurFade key={stat.label}>
+								<Card className="border-[var(--color-border)] p-4">
+									<p className="text-base font-semibold text-[var(--color-foreground)]">
+										{stat.value !== undefined ? (
+											<span className="inline-flex items-baseline gap-1">
+												<NumberTicker
+													value={stat.value}
+													decimals={stat.decimals}
+													suffix={stat.suffix}
+												/>
+												<span>{stat.label}</span>
+											</span>
+										) : (
+											stat.label
+										)}
+									</p>
+									<p className="mt-1 text-xs text-[var(--color-muted)]">
+										{stat.detail}
+									</p>
+								</Card>
+							</BlurFade>
 						))}
 					</div>
 

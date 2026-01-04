@@ -125,6 +125,35 @@ main {
 	}
 	to {
 		transform: translateX(0);
+@keyframes animate-ui-float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes animate-ui-word-rotate {
+	0% {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	20%,
+	80% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-8px);
+@keyframes shimmer-slide {
+	0% {
+		transform: translateX(-120%) skewX(-12deg);
+	}
+	100% {
+		transform: translateX(120%) skewX(-12deg);
 	}
 }
 
@@ -175,6 +204,19 @@ main {
 
 	.animate-marquee-reverse {
 		animation: marquee-reverse var(--marquee-duration, 20s) linear infinite;
+	.animate-ui-float {
+		animation: animate-ui-float 6s ease-in-out infinite;
+	}
+
+	.animate-ui-float-slow {
+		animation: animate-ui-float 8s ease-in-out infinite;
+	}
+
+	.animate-ui-word-rotate {
+		animation: animate-ui-word-rotate var(--word-rotate-duration, 2400ms)
+			var(--animate-ui-ease) both;
+	.animate-shimmer {
+		animation: shimmer-slide 2.4s linear infinite;
 	}
 }
 
@@ -184,6 +226,10 @@ main {
 	.animate-ui-fade-down {
 		animation: none;
 		transform: none;
+	}
+
+	.animate-shimmer {
+		animation: none;
 	}
 
 	.animate-ui-hover-lift,
@@ -196,5 +242,10 @@ main {
 	.animate-marquee-reverse {
 		animation-duration: 1ms;
 		animation-iteration-count: 1;
+	.animate-ui-float,
+	.animate-ui-float-slow,
+	.animate-ui-word-rotate {
+		animation: none;
+		transform: none;
 	}
 }

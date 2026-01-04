@@ -95,7 +95,7 @@ export default function ProductGallery() {
 
         {/* Special Edition */}
         <GridItem>
-          <CardMedia component="img" image="/floors//special-edition.jpg" alt="Special Edition" />
+          <CardMedia component="img" image="/floors/special-edition.jpg" alt="Special Edition" />
           <CardContent>
             <Typography variant="h6">Special Edition</Typography>
           </CardContent>

@@ -58,7 +58,7 @@ export default function Services() {
 							index === 2 ? "animate-ui-delay-3" : ""
 						} ${index === 3 ? "animate-ui-delay-4" : ""}`}
 					>
-						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5 text-[var(--color-foreground)]">
+						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-overlay)] text-[var(--color-foreground)]">
 							{service.icon}
 						</div>
 						<h3 className="text-base font-semibold text-[var(--color-foreground)]">

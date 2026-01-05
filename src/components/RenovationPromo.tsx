@@ -10,7 +10,7 @@ export default function RenovationPromo() {
 	const [revealed, setRevealed] = useState(false);
 
 	return (
-		<section className="bg-white py-16 md:py-20">
+		<section className="bg-[var(--color-surface)] py-16 md:py-20">
 			<div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center">
 				<div className="space-y-5">
 					<div className="space-y-2">

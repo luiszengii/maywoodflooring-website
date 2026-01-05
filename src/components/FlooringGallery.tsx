@@ -44,7 +44,7 @@ const flooringOptions = [
 
 export default function FlooringGallery() {
 	return (
-		<section className="bg-[#faf8f5] py-12 md:py-16">
+		<section className="bg-[var(--color-surface-muted)] py-12 md:py-16">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="mb-6 space-y-2">
 					<p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
@@ -64,7 +64,7 @@ export default function FlooringGallery() {
 						<Card
 							key={option.name}
 							as="article"
-							className={`animate-ui-fade-up animate-ui-hover-lift overflow-hidden border border-[#e8e1d9] ${
+							className={`animate-ui-fade-up animate-ui-hover-lift overflow-hidden border border-[var(--color-border)] ${
 								index < 3 ? "animate-ui-delay-1" : "animate-ui-delay-2"
 							}`}
 						>
@@ -80,7 +80,7 @@ export default function FlooringGallery() {
 								<p className="mt-1 text-sm text-[var(--color-muted)]">
 									{option.material}
 								</p>
-								<hr className="my-4 border-[#e8e1d9]" />
+								<hr className="my-4 border-[var(--color-border)]" />
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-semibold text-[var(--color-foreground)]">
 										{option.price}

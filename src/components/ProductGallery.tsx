@@ -80,7 +80,7 @@ export default function ProductGallery() {
 							type="button"
 							variant="outline"
 							size="sm"
-							className="border-[var(--color-primary)] text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:bg-[rgba(69,133,122,0.08)]"
+							className="border-[var(--color-primary)] text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-overlay)]"
 						>
 							Visit Our Showroom
 						</Button>

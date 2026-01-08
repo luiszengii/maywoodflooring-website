@@ -4,12 +4,13 @@ import NavigationBar from "@/components/NavigationBar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
-import RenovationPromo from "@/components/RenovationPromo";
-import ProductGallery from "@/components/ProductGallery";
 import FlooringGallery from "@/components/FlooringGallery";
 import ClientTestimonials from "@/components/ClientTestimonials";
 import TrustCredentials from "@/components/TrustCredentials";
 import Footer from "@/components/Footer";
+import CategoryGrid from "@/components/CategoryGrid";
+import VisualizerPromo from "@/components/VisualizerPromo";
+import SamplePromo from "@/components/SamplePromo";
 
 export default function Home() {
 	return (
@@ -102,12 +103,13 @@ export default function Home() {
 			</script>
 			<NavigationBar />
 			<Hero />
-			<Services />
-			<FeaturedProjects />
-			<RenovationPromo />
-			<FlooringGallery />
 			<TrustCredentials />
-			<ProductGallery />
+			<CategoryGrid />
+			<Services />
+			<VisualizerPromo />
+			<FlooringGallery />
+			<SamplePromo />
+			<FeaturedProjects />
 			<ClientTestimonials />
 			<Footer />
 		</main>
